@@ -1,0 +1,47 @@
+{
+  "name": "Terroir",
+  "style": "Organic",
+  "tagline": "Earthy, textured and seasonal",
+  "motif": "organic",
+  "fonts": { "head": "'Fraunces', Georgia, serif", "body": "'Work Sans', system-ui, sans-serif", "google": "family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600" },
+  "colors": { "bg": "#F4EEE3", "surface": "#EADFCC", "text": "#2D2A22", "muted": "#6E6656", "accent": "#B5562E", "accent_text": "#FFFFFF", "border": "#D9CBB2", "alt": "#5E7350" },
+  "site": { "name": "Hearth & Field", "nav": ["Menu", "Our farm", "Bakery", "Visit"] },
+  "sections": {
+    "header": { "settings": { "announcement": "Sunday long-table lunches are back — bookings open for spring", "cta_label": "Book a table", "cta_link": "#contact" } },
+    "hero": {
+      "settings": { "layout": "full", "eyebrow": "Farm-to-table kitchen & bakery", "heading": "Cooked from what the field gives us today.", "subheading": "A wood-fired kitchen and sourdough bakery on the edge of town. Our menu changes daily with the harvest from our own farm and twelve neighbouring growers.", "cta_label": "Reserve a table", "cta_link": "#contact", "cta2_label": "Today's menu", "cta2_link": "#services", "image": "hero.svg", "note": "" },
+      "blocks": [ { "value": "40 km", "label": "Furthest ingredient" }, { "value": "Daily", "label": "New menu" } ]
+    },
+    "services": {
+      "settings": { "layout": "list", "eyebrow": "From the kitchen", "heading": "What we're serving", "intro": "Everything is cooked over oak and beech from our own woodland." },
+      "blocks": [
+        { "title": "Harvest tasting menu", "text": "Seven courses built around this week's harvest, with optional natural-wine pairing.", "price": "€72 · Thu – Sat" },
+        { "title": "Sunday long table", "text": "Family-style roast, shared salads and pies at one long table under the walnut tree.", "price": "€45 · Sundays" },
+        { "title": "Bakery counter", "text": "Sourdough, cardamom buns and seasonal galettes, baked from 6 am.", "price": "From €3" },
+        { "title": "Private dining", "text": "The old barn for up to 24 guests, with a menu planned around your date.", "price": "On request" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "Our farm", "heading": "Rooted in four hectares of clay soil.", "text": "Hearth & Field grew out of a vegetable garden that got slightly out of hand. Today chef Ines and grower Bram run the kitchen and farm side by side, so what's picked in the morning is on your plate by lunch.", "signature": "Ines & Bram", "image": "about.svg" },
+      "blocks": [ { "title": "Zero air-miles", "text": "Everything within 40 km" }, { "title": "Wood-fired", "text": "No gas in the kitchen" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "Seasons", "heading": "Life on the farm" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "Late summer harvest" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "Guests", "heading": "Kind words from the long table", "rating": "4.9 · 640 reviews · Michelin Green Star" },
+      "blocks": [
+        { "quote": "You can taste that the carrots were in the ground this morning. Honest, generous food.", "author": "Lotte J.", "detail": "Harvest tasting menu" },
+        { "quote": "The Sunday lunch felt like eating at a friend's farmhouse. We've booked again already.", "author": "Karim & Eva", "detail": "Sunday long table" },
+        { "quote": "Best sourdough in the province. I drive twenty minutes every Saturday.", "author": "Wim D.", "detail": "Bakery regular" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "Visit", "heading": "Find us down the farm lane", "address": "Akkerweg 7\n6871 AB Renkum", "phone": "+31 317 123 456", "email": "table@hearthandfield.nl", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Bakery · Tue – Sun", "time": "07:00 – 15:00" }, { "day": "Kitchen · Thu – Sat", "time": "18:00 – 23:00" }, { "day": "Sunday lunch", "time": "12:30 sharp" } ]
+    },
+    "contact": { "settings": { "eyebrow": "Reservations", "heading": "Save a seat at the table", "text": "Tell us your date and party size. For groups over eight, ask about the barn.", "button": "Request a table" } },
+    "footer": { "settings": { "tagline": "Wood-fired, farm-to-table kitchen & sourdough bakery.", "address": "Akkerweg 7, Renkum", "phone": "+31 317 123 456", "instagram": "https://instagram.com", "facebook": "" } }
+  }
+}

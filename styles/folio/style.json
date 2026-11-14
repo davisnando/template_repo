@@ -1,0 +1,47 @@
+{
+  "name": "Folio",
+  "style": "Editorial",
+  "tagline": "Type-led, Swiss and architectural",
+  "motif": "swiss",
+  "fonts": { "head": "'Archivo', 'Helvetica Neue', sans-serif", "body": "'Inter', 'Helvetica Neue', sans-serif", "google": "family=Archivo:wght@500;800&family=Inter:wght@400;500;600" },
+  "colors": { "bg": "#F2F1EC", "surface": "#E7E5DE", "text": "#111111", "muted": "#5C5C58", "accent": "#E5321B", "accent_text": "#FFFFFF", "border": "#CFCDC4", "alt": "#111111" },
+  "site": { "name": "Studio Kade", "nav": ["Work", "Services", "Studio", "Contact"] },
+  "sections": {
+    "header": { "settings": { "announcement": "", "cta_label": "Start a project", "cta_link": "#contact" } },
+    "hero": {
+      "settings": { "layout": "stacked", "eyebrow": "Architecture & interiors — Amsterdam", "heading": "Spaces with intent", "subheading": "An independent studio designing homes, shops and workplaces that are calm, useful and built to last.", "cta_label": "Start a project", "cta_link": "#contact", "cta2_label": "Selected work", "cta2_link": "#gallery", "image": "hero.svg", "note": "" },
+      "blocks": [ { "value": "120+", "label": "Projects completed" }, { "value": "Est. 2011", "label": "Amsterdam" } ]
+    },
+    "services": {
+      "settings": { "layout": "list", "eyebrow": "(01) Services", "heading": "What we do", "intro": "From first sketch to final fit-out, with one team throughout." },
+      "blocks": [
+        { "title": "Residential", "text": "Renovations, extensions and new-build homes designed around how you live.", "price": "01" },
+        { "title": "Retail & hospitality", "text": "Shops, cafés and restaurants that turn passers-by into regulars.", "price": "02" },
+        { "title": "Workplace", "text": "Offices that people actually want to come back to.", "price": "03" },
+        { "title": "Interior styling", "text": "Furniture, lighting and material selection for finished spaces.", "price": "04" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "(02) Studio", "heading": "Small team. Considered work.", "text": "Studio Kade is a team of seven architects and designers working from a converted printworks on the IJ. We take on a limited number of projects each year so every client works directly with a founding partner.", "signature": "", "image": "about.svg" },
+      "blocks": [ { "title": "Dutch Design Award", "text": "Winner, 2024" }, { "title": "BNA registered", "text": "Chartered architects" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "(03) Selected work", "heading": "Recent projects" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "Canal house, Prinsengracht" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "(04) Clients", "heading": "In good company", "rating": "Featured in Frame, Dezeen & Elle Decoration" },
+      "blocks": [
+        { "quote": "They listened more than they talked, and the result is a house that fits us perfectly.", "author": "J. & M. Hofman", "detail": "Canal house renovation" },
+        { "quote": "Our café's revenue grew 40% after the redesign. The space does the selling.", "author": "Nadia El Amrani", "detail": "Owner, Café Noor" },
+        { "quote": "Rigorous, calm and delivered on budget. Rare in this industry.", "author": "Pieter Smit", "detail": "COO, Oak & Ash" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "(05) Office", "heading": "Visit the studio", "address": "Drukkerijweg 12\n1031 HM Amsterdam", "phone": "+31 20 794 1100", "email": "studio@kade.nl", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Monday – Friday", "time": "09:00 – 18:00" }, { "day": "Site visits", "time": "By appointment" } ]
+    },
+    "contact": { "settings": { "eyebrow": "(06) Contact", "heading": "Tell us about your space.", "text": "Share a few lines about your project, location and timing. We reply to every enquiry within two days.", "button": "Send enquiry →" } },
+    "footer": { "settings": { "tagline": "Independent architecture & interiors studio, Amsterdam.", "address": "Drukkerijweg 12, Amsterdam", "phone": "+31 20 794 1100", "instagram": "https://instagram.com", "facebook": "https://linkedin.com" } }
+  }
+}

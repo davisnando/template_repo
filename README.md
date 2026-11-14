@@ -1,6 +1,6 @@
 # Local Business Templates
 
-Seven modern website templates for local businesses. Every template is a separate, named theme and ships as a **Shopify Online Store 2.0 theme** and as a **Squarespace Developer Platform template**, both generated from one shared source.
+Twelve modern website templates for local businesses. Every template is a separate, named theme and ships as a **Shopify Online Store 2.0 theme** and as a **Squarespace Developer Platform template**, both generated from one shared source.
 
 | Template | Desktop | Mobile |
 |---|---|---|
@@ -11,8 +11,21 @@ Seven modern website templates for local businesses. Every template is a separat
 | **Meridian**<br>Professional · <sub>Clear, credible and data-led</sub><br><sub>Demo: Harbor & Pine</sub> | ![Meridian desktop](screenshots/meridian/desktop.png) | ![Meridian mobile](screenshots/meridian/mobile.png) |
 | **Camellia**<br>Elegant · <sub>Soft, romantic and refined</sub><br><sub>Demo: Petal & Stem</sub> | ![Camellia desktop](screenshots/camellia/desktop.png) | ![Camellia mobile](screenshots/camellia/mobile.png) |
 | **Marigold**<br>Friendly · <sub>Warm, playful and welcoming</sub><br><sub>Demo: Happy Paws</sub> | ![Marigold desktop](screenshots/marigold/desktop.png) | ![Marigold mobile](screenshots/marigold/mobile.png) |
+| **Terroir**<br>Organic · <sub>Earthy, textured and seasonal</sub><br><sub>Demo: Hearth & Field</sub> | ![Terroir desktop](screenshots/terroir/desktop.png) | ![Terroir mobile](screenshots/terroir/mobile.png) |
+| **Pulse**<br>Athletic · <sub>Bold, kinetic and community-first</sub><br><sub>Demo: Forge Athletic Club</sub> | ![Pulse desktop](screenshots/pulse/desktop.png) | ![Pulse mobile](screenshots/pulse/mobile.png) |
+| **Tessera**<br>Bento · <sub>Modular, soft and modern</sub><br><sub>Demo: Studio Verve</sub> | ![Tessera desktop](screenshots/tessera/desktop.png) | ![Tessera mobile](screenshots/tessera/mobile.png) |
+| **Sundown**<br>Retro · <sub>Warm, groovy and nostalgic</sub><br><sub>Demo: Groove Theory</sub> | ![Sundown desktop](screenshots/sundown/desktop.png) | ![Sundown mobile](screenshots/sundown/mobile.png) |
+| **Folio**<br>Editorial · <sub>Type-led, Swiss and architectural</sub><br><sub>Demo: Studio Kade</sub> | ![Folio desktop](screenshots/folio/desktop.png) | ![Folio mobile](screenshots/folio/mobile.png) |
 
 Full-page captures live in `screenshots/<template>/full.png`.
+
+### Inspiration for the 2026 additions
+The last five templates draw on themes that 2026 design roundups keep repeating:
+- **Terroir:** grain and texture, as a counter to AI-polished visuals.
+- **Tessera:** a bento-grid services layout, added as a new `bento` layout option that every template can use.
+- **Folio:** type-led editorial design.
+- **Sundown:** retro nostalgia.
+- **Pulse:** gym sites that lead with community rather than intimidation.
 
 ## How it works
 
@@ -36,7 +49,7 @@ A section is a single template function. Its output goes through a context objec
 - **Shopify:** `{{ section.settings.heading | escape }}`, `{% for block in section.blocks %}`, plus a generated `{% schema %}`. Defaults come from the style's demo content, so a fresh install looks like the screenshot.
 - **Squarespace and the preview:** the demo content baked in as HTML.
 
-Adding or changing a section in `sections.js` therefore updates all 7 styles on both platforms.
+Adding or changing a section in `sections.js` therefore updates all 12 templates on both platforms.
 
 ## Commands
 

@@ -1,0 +1,50 @@
+{
+  "name": "Pulse",
+  "style": "Athletic",
+  "tagline": "Bold, kinetic and community-first",
+  "motif": "athletic",
+  "dark": true,
+  "fonts": { "head": "'Anton', Impact, sans-serif", "body": "'Inter', system-ui, sans-serif", "google": "family=Anton&family=Inter:wght@400;500;600;700" },
+  "colors": { "bg": "#0F0F10", "surface": "#18181A", "text": "#F5F5F0", "muted": "#A3A39C", "accent": "#D4FF3A", "accent_text": "#0F0F10", "border": "#2A2A2D", "alt": "#FF4D2E" },
+  "site": { "name": "Forge Athletic Club", "nav": ["Classes", "Coaches", "Membership", "Schedule"] },
+  "sections": {
+    "header": { "settings": { "announcement": "FIRST WEEK FREE — NO CONTRACT · NO JUDGEMENT · ALL LEVELS", "cta_label": "Free trial", "cta_link": "#contact" } },
+    "hero": {
+      "settings": { "layout": "stacked", "eyebrow": "Strength & conditioning gym", "heading": "Stronger together.", "subheading": "Coached group classes, open gym and personal training for every body. Show up, we'll handle the rest.", "cta_label": "Claim your free week", "cta_link": "#contact", "cta2_label": "View schedule", "cta2_link": "#services", "image": "hero.svg", "note": "" },
+      "blocks": [ { "value": "48", "label": "Classes / week" }, { "value": "1,100", "label": "Members" }, { "value": "05:30", "label": "First class" } ]
+    },
+    "services": {
+      "settings": { "layout": "grid", "eyebrow": "Train", "heading": "Find your class", "intro": "Every session is coached and scaled to your level, from first-timer to competitor." },
+      "blocks": [
+        { "title": "Forge HIIT", "text": "45 minutes of intervals, sweat and loud music.", "price": "All levels" },
+        { "title": "Strength", "text": "Barbell technique and progressive programming.", "price": "Beginner friendly" },
+        { "title": "Engine", "text": "Rowing, bikes and running for real-world fitness.", "price": "All levels" },
+        { "title": "Mobility", "text": "Recovery, stretching and breath work.", "price": "Every evening" },
+        { "title": "Personal training", "text": "One-to-one coaching built around your goals.", "price": "From €55" },
+        { "title": "Teens & kids", "text": "Safe, fun movement for ages 8–17.", "price": "Saturdays" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "Community", "heading": "No egos. No mirrors. Just progress.", "text": "Forge started in a garage with six friends and a pull-up bar. We're still built on the same idea: training is better when people cheer you on. Our coaches know your name, your goals and your excuses.", "signature": "", "image": "about.svg" },
+      "blocks": [ { "title": "12 coaches", "text": "Certified & obsessed" }, { "title": "Free childcare", "text": "During peak hours" }, { "title": "Open 7 days", "text": "05:30 – 22:00" }, { "title": "Monthly events", "text": "Socials & challenges" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "The floor", "heading": "Built for hard work" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "Saturday team WOD" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "Members", "heading": "Real people. Real results.", "rating": "4.9 ON GOOGLE · 530 REVIEWS" },
+      "blocks": [
+        { "quote": "I was terrified of gyms. Six months later I deadlift my bodyweight and have a new group of friends.", "author": "Sanne", "detail": "Member since 2024" },
+        { "quote": "The coaching is next-level. They fixed my squat in one session.", "author": "Youssef", "detail": "Strength class" },
+        { "quote": "Free childcare and 6 am classes — finally a gym that works for parents.", "author": "Marloes", "detail": "Mum of two" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "Location", "heading": "Come train with us", "address": "Industrieweg 40\n3542 AD Utrecht", "phone": "+31 30 600 4040", "email": "crew@forgeathletic.club", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Mon – Fri", "time": "05:30 – 22:00" }, { "day": "Sat – Sun", "time": "08:00 – 16:00" } ]
+    },
+    "contact": { "settings": { "eyebrow": "Free week", "heading": "Your first week is on us", "text": "Leave your details and a coach will call to plan your first session.", "button": "Start free week" } },
+    "footer": { "settings": { "tagline": "Strength & conditioning gym. Stronger together.", "address": "Industrieweg 40, Utrecht", "phone": "+31 30 600 4040", "instagram": "https://instagram.com", "facebook": "https://facebook.com" } }
+  }
+}

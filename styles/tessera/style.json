@@ -1,0 +1,48 @@
+{
+  "name": "Tessera",
+  "style": "Bento",
+  "tagline": "Modular, soft and modern",
+  "motif": "pastel",
+  "fonts": { "head": "'Bricolage Grotesque', system-ui, sans-serif", "body": "'Inter', system-ui, sans-serif", "google": "family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600" },
+  "colors": { "bg": "#FBF8F6", "surface": "#FFFFFF", "text": "#211C26", "muted": "#6D6574", "accent": "#6E56CF", "accent_text": "#FFFFFF", "border": "#ECE6EF", "alt": "#F5B9A3" },
+  "site": { "name": "Studio Verve", "nav": ["Services", "Stylists", "Colour", "Book"] },
+  "sections": {
+    "header": { "settings": { "announcement": "", "cta_label": "Book online", "cta_link": "#contact" } },
+    "hero": {
+      "settings": { "layout": "split", "eyebrow": "Hair & colour studio", "heading": "Hair that feels like you, only better.", "subheading": "Precision cuts, lived-in colour and curly-hair specialists in a bright, plant-filled studio. Book online in 30 seconds.", "cta_label": "Book an appointment", "cta_link": "#contact", "cta2_label": "Find your stylist", "cta2_link": "#about", "image": "hero.svg", "note": "✦ Free consultation with every colour booking" },
+      "blocks": [ { "value": "4.9★", "label": "1,900 reviews" }, { "value": "9", "label": "Stylists" } ]
+    },
+    "services": {
+      "settings": { "layout": "bento", "eyebrow": "Services", "heading": "Everything for great hair", "intro": "Transparent pricing. Every service starts with a consultation." },
+      "blocks": [
+        { "title": "Lived-in colour", "text": "Balayage, babylights and soft root melts that grow out beautifully — designed for low-maintenance hair that still looks fresh months later.", "price": "From €145 · 3 hrs" },
+        { "title": "Precision cut", "text": "Cut, wash and style.", "price": "From €58" },
+        { "title": "Curl studio", "text": "Dry cuts for curls & coils.", "price": "From €75" },
+        { "title": "Gloss & tone", "text": "Shine boost between colours.", "price": "€45" },
+        { "title": "Bridal & events", "text": "Trials, styling and on-location teams.", "price": "On request" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "The studio", "heading": "Nine stylists. One very good vibe.", "text": "Studio Verve is an independent salon built around education and kindness. Not sure who to book? Take our 60-second stylist match and we'll pair you with the right person for your hair type and goals.", "signature": "", "image": "about.svg" },
+      "blocks": [ { "title": "Stylist match", "text": "Take the 60-second quiz" }, { "title": "Vegan products", "text": "Davines & Olaplex" }, { "title": "Curl certified", "text": "DevaCurl & Rëzo trained" }, { "title": "Late nights", "text": "Thu & Fri until 21:00" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "Lookbook", "heading": "Fresh from the chair" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "Honey balayage by Mila" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "Reviews", "heading": "Our clients say it best", "rating": "4.9 average from 1,900 reviews" },
+      "blocks": [
+        { "quote": "First salon that actually understands my curls. I walked out bouncing.", "author": "Amara", "detail": "Curl studio" },
+        { "quote": "The stylist match quiz paired me with Jules and it's been love ever since.", "author": "Femke", "detail": "Colour client" },
+        { "quote": "Clear prices, great coffee, gorgeous colour. Booking was so easy.", "author": "Lisa", "detail": "Lived-in colour" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "Visit", "heading": "Drop by the studio", "address": "Witte de Withstraat 61\n3012 BN Rotterdam", "phone": "+31 10 412 6100", "email": "hello@studioverve.nl", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Tue – Wed", "time": "09:00 – 18:00" }, { "day": "Thu – Fri", "time": "09:00 – 21:00" }, { "day": "Saturday", "time": "08:30 – 17:00" } ]
+    },
+    "contact": { "settings": { "eyebrow": "Book", "heading": "Ready for your new look?", "text": "Tell us what you have in mind and we'll match you with the right stylist and time.", "button": "Request appointment ✦" } },
+    "footer": { "settings": { "tagline": "Independent hair & colour studio in Rotterdam.", "address": "Witte de Withstraat 61, Rotterdam", "phone": "+31 10 412 6100", "instagram": "https://instagram.com", "facebook": "https://tiktok.com" } }
+  }
+}

@@ -222,7 +222,123 @@ ${blocks}
 <circle cx="${px}" cy="${py - 34}" r="12" fill="${dark ? p.bg : '#fff'}"/>`);
 }
 
-const motifs = { minimalist, futuristic, luxury, brutalist, professional, elegant, friendly };
+
+// ---------- Organic (Terroir): sun over rolling hills, wheat, film grain ----------
+const grain = (op = 0.18) => `<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 ${op} 0"/></filter>`;
+function organic(w, h, p, seed) {
+  const r = rng(seed);
+  const hill = (y, amp, fill, k) => {
+    let d = `M0,${h} L0,${y}`;
+    for (let x = 0; x <= w; x += w / 4) d += ` Q${x + w / 8},${y - amp * (0.5 + r()) * (k % 2 ? 1 : -0.6)} ${x + w / 4},${y + (r() - 0.5) * amp * 0.4}`;
+    return `<path d="${d} L${w},${h} Z" fill="${fill}"/>`;
+  };
+  let wheat = '';
+  for (let i = 0; i < 26; i++) {
+    const x = r() * w, bh = h * (0.12 + r() * 0.12), y = h;
+    wheat += `<path d="M${x},${y} Q${x + 8},${y - bh / 2} ${x + 14 * (r() - 0.3)},${y - bh}" stroke="${p.text}" stroke-width="2" fill="none" opacity=".55"/>`;
+    for (let k = 0; k < 5; k++) wheat += `<ellipse cx="${x + 10 * (r() - 0.3)}" cy="${y - bh + k * 9}" rx="3.2" ry="8" fill="${p.accent}" opacity=".8" transform="rotate(${k % 2 ? 25 : -25} ${x} ${y - bh + k * 9})"/>`;
+  }
+  return svg(w, h, `
+<rect width="${w}" height="${h}" fill="url(#sky)"/>
+<circle cx="${w > h * 1.2 ? w * 0.74 : w * (0.3 + r() * 0.4)}" cy="${h * 0.38}" r="${Math.min(w, h) * 0.17}" fill="${p.accent}" opacity=".85"/>
+${hill(h * 0.55, h * 0.12, p.border, 1)}${hill(h * 0.66, h * 0.1, p.alt, 2)}${hill(h * 0.78, h * 0.08, '#3F5236', 3)}
+${wheat}
+<rect width="${w}" height="${h}" filter="url(#grain)"/>`,
+  `<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p.surface}"/><stop offset="1" stop-color="#F3C9A0"/></linearGradient>${grain()}`);
+}
+
+// ---------- Athletic (Pulse): diagonal speed stripes + kettlebell ----------
+function athletic(w, h, p, seed) {
+  const r = rng(seed);
+  let stripes = '';
+  for (let i = -4; i < 14; i++) {
+    const x = i * w * 0.11 + r() * 20;
+    stripes += `<polygon points="${x},${h} ${x + w * 0.05},${h} ${x + w * 0.05 + h * 0.6},0 ${x + h * 0.6},0" fill="${i % 3 ? '#fff' : p.accent}" opacity="${i % 3 ? 0.04 : 0.9}"/>`;
+  }
+  const cx = w * (0.45 + r() * 0.15), cy = h * 0.58, R = Math.min(w, h) * 0.24;
+  return svg(w, h, `
+<rect width="${w}" height="${h}" fill="${p.bg}"/>
+${stripes}
+<ellipse cx="${cx}" cy="${cy + R * 1.05}" rx="${R * 1.1}" ry="${R * 0.12}" fill="#000" opacity=".6"/>
+<path d="M${cx - R * 0.55},${cy - R * 0.7} C${cx - R * 0.6},${cy - R * 1.6} ${cx + R * 0.6},${cy - R * 1.6} ${cx + R * 0.55},${cy - R * 0.7}" stroke="#2E2E31" stroke-width="${R * 0.26}" fill="none" stroke-linecap="round"/>
+<circle cx="${cx}" cy="${cy}" r="${R}" fill="url(#bell)"/>
+<rect x="${cx - R * 0.42}" y="${cy - R * 0.12}" width="${R * 0.84}" height="${R * 0.38}" rx="${R * 0.06}" fill="${p.accent}"/>
+<text x="${cx}" y="${cy + R * 0.16}" font-family="Anton, Impact, sans-serif" font-size="${R * 0.3}" text-anchor="middle" fill="${p.bg}">24 KG</text>
+<rect x="0" y="${h - 10}" width="${w}" height="10" fill="${p.alt}"/>`,
+  `<radialGradient id="bell" cx=".35" cy=".3"><stop offset="0" stop-color="#5a5a60"/><stop offset=".55" stop-color="#252528"/><stop offset="1" stop-color="#0c0c0d"/></radialGradient>`);
+}
+
+// ---------- Pastel (Tessera): soft shapes, scissors & sparkles ----------
+function sparkle(x, y, s, fill) {
+  return `<path d="M${x},${y - 20 * s} C${x + 3 * s},${y - 3 * s} ${x + 3 * s},${y - 3 * s} ${x + 20 * s},${y} C${x + 3 * s},${y + 3 * s} ${x + 3 * s},${y + 3 * s} ${x},${y + 20 * s} C${x - 3 * s},${y + 3 * s} ${x - 3 * s},${y + 3 * s} ${x - 20 * s},${y} C${x - 3 * s},${y - 3 * s} ${x - 3 * s},${y - 3 * s} ${x},${y - 20 * s} Z" fill="${fill}"/>`;
+}
+function pastel(w, h, p, seed) {
+  const r = rng(seed);
+  const cx = w * (0.4 + r() * 0.2), cy = h * 0.5, S = Math.min(w, h) / 900;
+  let dots = '';
+  for (let i = 0; i < 6; i++) dots += sparkle(r() * w, r() * h, 0.8 + r() * 1.4, i % 2 ? p.accent : '#fff');
+  return svg(w, h, `
+<rect width="${w}" height="${h}" fill="url(#bg)"/>
+<circle cx="${w * 0.78}" cy="${h * 0.25}" r="${260 * S}" fill="${p.alt}" opacity=".75"/>
+<rect x="${w * 0.08}" y="${h * 0.55}" width="${360 * S}" height="${360 * S}" rx="${120 * S}" fill="#fff" opacity=".7" transform="rotate(-12 ${w * 0.2} ${h * 0.7})"/>
+<g transform="translate(${cx} ${cy}) rotate(${-20 + r() * 12}) scale(${S * 1.25})">
+  <polygon points="-18,-10 18,-10 6,-330 -2,-330" fill="#D9D3E6" transform="rotate(14)"/>
+  <polygon points="-18,-10 18,-10 2,-330 -6,-330" fill="#EDE9F5" transform="rotate(-14)"/>
+  <circle r="14" fill="${p.text}"/>
+  <circle cx="-62" cy="120" r="58" fill="none" stroke="${p.accent}" stroke-width="22" />
+  <circle cx="62" cy="120" r="58" fill="none" stroke="${p.accent}" stroke-width="22" />
+  <path d="M-30,62 L-6,6 M30,62 L6,6" stroke="${p.accent}" stroke-width="22" stroke-linecap="round"/>
+</g>
+${dots}`,
+  `<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE7FF"/><stop offset="1" stop-color="#FFE9DF"/></linearGradient>`);
+}
+
+// ---------- Retro (Sundown): 70s sunburst, rainbow stripes, vinyl ----------
+function retro(w, h, p, seed) {
+  const r = rng(seed);
+  const ox = w / 2, oy = h * 1.05;
+  let rays = '';
+  for (let i = 0; i < 24; i++) {
+    const a1 = Math.PI + (i / 24) * Math.PI, a2 = Math.PI + ((i + 0.5) / 24) * Math.PI, L = Math.max(w, h) * 1.4;
+    rays += `<polygon points="${ox},${oy} ${ox + Math.cos(a1) * L},${oy + Math.sin(a1) * L} ${ox + Math.cos(a2) * L},${oy + Math.sin(a2) * L}" fill="${p.surface}"/>`;
+  }
+  const cols = [p.accent, p.alt, '#B8452A', p.text];
+  let arcs = '';
+  const base = Math.min(w, h) * 0.62;
+  cols.forEach((c, i) => { const rr = base - i * base * 0.11; arcs += `<path d="M${ox - rr},${oy} A${rr},${rr} 0 0 1 ${ox + rr},${oy}" fill="${c}"/>`; });
+  const vx = w * (0.62 + r() * 0.1), vy = h * 0.42, V = Math.min(w, h) * 0.22;
+  let grooves = '';
+  for (let g = 0.42; g < 0.98; g += 0.07) grooves += `<circle cx="${vx}" cy="${vy}" r="${V * g}" fill="none" stroke="#3a3a3a" stroke-width="1.5"/>`;
+  return svg(w, h, `
+<rect width="${w}" height="${h}" fill="${p.bg}"/>
+${rays}${arcs}
+<circle cx="${ox}" cy="${oy}" r="${base * 0.56}" fill="${p.bg}"/>
+<g transform="rotate(${r() * 30} ${vx} ${vy})"><circle cx="${vx + 10}" cy="${vy + 14}" r="${V}" fill="#000" opacity=".25"/><circle cx="${vx}" cy="${vy}" r="${V}" fill="#141414"/>${grooves}
+<path d="M${vx - V * 0.9},${vy - V * 0.2} A${V * 0.92},${V * 0.92} 0 0 1 ${vx - V * 0.2},${vy - V * 0.9}" stroke="#fff" stroke-opacity=".18" stroke-width="6" fill="none"/>
+<circle cx="${vx}" cy="${vy}" r="${V * 0.33}" fill="${p.alt}"/><circle cx="${vx}" cy="${vy}" r="${V * 0.04}" fill="${p.bg}"/></g>
+<rect width="${w}" height="${h}" filter="url(#grain)"/>`, grain(0.22));
+}
+
+// ---------- Swiss (Folio): grid, red circle, black planes ----------
+function swiss(w, h, p, seed) {
+  const r = rng(seed);
+  let grid = '';
+  for (let x = 0; x <= w; x += w / 12) grid += `<line x1="${x}" y1="0" x2="${x}" y2="${h}"/>`;
+  for (let y = 0; y <= h; y += h / 8) grid += `<line x1="0" y1="${y}" x2="${w}" y2="${y}"/>`;
+  const R = Math.min(w, h) * (0.24 + r() * 0.08);
+  const cx = w * (0.55 + r() * 0.2), cy = h * (0.35 + r() * 0.2);
+  const bx = w * (0.08 + r() * 0.2), bw = w * (0.3 + r() * 0.15);
+  return svg(w, h, `
+<rect width="${w}" height="${h}" fill="${p.surface}"/>
+<g stroke="${p.text}" stroke-opacity=".08">${grid}</g>
+<rect x="${bx}" y="${h * 0.5}" width="${bw}" height="${h * 0.5}" fill="${p.text}"/>
+<circle cx="${cx}" cy="${cy}" r="${R}" fill="${p.accent}" style="mix-blend-mode:multiply"/>
+<rect x="${w * 0.66}" y="${h * 0.72}" width="${w * 0.22}" height="${h * 0.02}" fill="${p.text}"/>
+<line x1="0" y1="${h * 0.5}" x2="${w}" y2="${h * 0.5}" stroke="${p.text}" stroke-width="2"/>
+<text x="${w * 0.04}" y="${h * 0.12}" font-family="Archivo, Helvetica, sans-serif" font-weight="800" font-size="${h * 0.07}" fill="${p.text}">${String(seed).padStart(2, '0')}</text>`);
+}
+
+const motifs = { minimalist, futuristic, luxury, brutalist, professional, elegant, friendly, organic, athletic, pastel, retro, swiss };
 
 /** Returns { filename: svgString } for one style. */
 export function artworkFor(motif, palette, dark = false) {

@@ -71,7 +71,7 @@ export const sections = {
   services: {
     name: 'Services',
     settings: [
-      { id: 'layout', type: 'select', label: 'Layout', options: ['cards', 'list', 'grid'] },
+      { id: 'layout', type: 'select', label: 'Layout', options: ['cards', 'list', 'grid', 'bento'] },
       { id: 'eyebrow', type: 'text', label: 'Eyebrow' },
       { id: 'heading', type: 'text', label: 'Heading' },
       { id: 'intro', type: 'textarea', label: 'Intro' },

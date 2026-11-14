@@ -1,0 +1,29 @@
+:root { --radius: 4px; --radius-btn: 4px; --fw-head: 400; --head-case: uppercase; --head-track: 0; --head-lh: .92; --h1: clamp(3.6rem, 10vw, 9rem); --h2: clamp(2.6rem, 6vw, 5rem); --shadow: none; }
+.announcement { background: var(--c-accent); color: var(--c-bg); font-weight: 800; letter-spacing: .1em; font-size: .78rem; }
+.site-header { background: rgb(15 15 16 / .85); }
+.brand { font-size: 1.6rem; text-transform: uppercase; }
+.brand__mark { border-radius: 0; background: var(--c-accent); transform: skewX(-15deg); width: 12px; height: 22px; }
+.site-nav a { text-transform: uppercase; font-weight: 700; letter-spacing: .06em; font-size: .85rem; }
+.eyebrow { color: var(--c-accent); font-weight: 800; letter-spacing: .2em; }
+.btn { text-transform: uppercase; font-weight: 800; letter-spacing: .06em; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); padding: 1.1em 1.9em; }
+.btn--small { background: var(--c-accent); color: var(--c-bg); }
+.btn--ghost { background: #fff; color: var(--c-bg); border: 0; }
+.hero--stacked .hero__title { font-size: var(--h1); }
+.hero--stacked .hero__title { -webkit-text-stroke: 0; }
+.hero--stacked .hero__media { border-radius: 0; margin: 0; }
+.stat dd { color: var(--c-accent); font-size: 3rem; }
+.stat dt { text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+.services--grid .service { transition: background .2s; }
+.services--grid .service:hover { background: var(--c-accent); color: var(--c-bg); }
+.services--grid .service:hover .service__text, .services--grid .service:hover .service__price { color: var(--c-bg); }
+.service__title { font-size: 2rem; }
+.service__price { text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; }
+.about__media { border-radius: 0; clip-path: polygon(0 0, 100% 0, 100% 92%, 88% 100%, 0 100%); }
+.about__points strong { color: var(--c-accent); font-family: var(--f-head); font-size: 1.6rem; text-transform: uppercase; font-weight: 400; }
+.testimonials { background: var(--c-accent); color: var(--c-bg); }
+.testimonials .eyebrow, .testimonials .rating, .testimonials .rating__stars { color: var(--c-bg); }
+.quote { background: var(--c-bg); color: var(--c-text); border: 0; }
+.quote__text { font-family: var(--f-head); text-transform: uppercase; font-size: 1.7rem; line-height: 1.05; }
+.contact__form, .contact form { background: var(--c-surface); }
+.site-footer { background: #070708; color: var(--c-text); border-top: 4px solid var(--c-accent); }
+.site-footer__legal { border-color: var(--c-border); }

@@ -110,6 +110,15 @@ p { margin: 0; }
 .services--list .service:last-child { border-bottom: var(--border-w) solid var(--c-border); }
 .services--list .service__text, .services--list .service__price { margin: 0; }
 
+/* Bento: one feature tile, the rest fill around it */
+.services--bento .services__list { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(190px, auto); grid-auto-flow: dense; gap: 16px; }
+.services--bento .service { background: var(--c-surface); border: var(--border-w) solid var(--c-border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; }
+.services--bento .service__price { margin-top: auto; padding-top: 1rem; }
+.services--bento .service:first-child { grid-column: span 2; grid-row: span 2; background: var(--c-accent); color: var(--c-accent-text); border: 0; }
+.services--bento .service:first-child .service__title { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.services--bento .service:first-child .service__text, .services--bento .service:first-child .service__price { color: inherit; opacity: .85; }
+.services--bento .service:nth-child(6n) { grid-column: span 2; }
+
 /* About */
 .about__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 7vw, 104px); align-items: center; }
 .about__media { margin: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
@@ -181,12 +190,15 @@ p { margin: 0; }
   .hero--split .hero__media { order: 2; margin-top: 32px; margin-bottom: 0; }
   .hero--stacked .hero__stats { justify-content: flex-start; }
   .services--list .service { grid-template-columns: 1fr; gap: .5rem; }
+  .services--bento .services__list { grid-template-columns: 1fr 1fr; }
   .gallery__grid { grid-template-columns: 1fr 1fr; }
   .gallery__item:nth-child(4) { aspect-ratio: 2 / 1; }
   .site-footer__inner { grid-template-columns: 1fr 1fr; }
   .contact__form, .contact form { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
+  .services--bento .services__list { grid-template-columns: 1fr; }
+  .services--bento .service { grid-column: auto !important; grid-row: auto !important; }
   .about__points { grid-template-columns: 1fr; }
   .site-footer__inner { grid-template-columns: 1fr; }
 }

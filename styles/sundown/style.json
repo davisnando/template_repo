@@ -1,0 +1,47 @@
+{
+  "name": "Sundown",
+  "style": "Retro",
+  "tagline": "Warm, groovy and nostalgic",
+  "motif": "retro",
+  "fonts": { "head": "'Shrikhand', Georgia, serif", "body": "'DM Sans', system-ui, sans-serif", "google": "family=Shrikhand&family=DM+Sans:wght@400;500;700" },
+  "colors": { "bg": "#F6E8CF", "surface": "#EED6AE", "text": "#3A2318", "muted": "#7A5A45", "accent": "#E0582B", "accent_text": "#FFF6E6", "border": "#D9BC8F", "alt": "#E7A93A" },
+  "site": { "name": "Groove Theory", "nav": ["Records", "Turntables", "Listening bar", "Events"] },
+  "sections": {
+    "header": { "settings": { "announcement": "★ Record Store Day — doors open at 8 am, free coffee for the queue ★", "cta_label": "Visit the shop", "cta_link": "#visit" } },
+    "hero": {
+      "settings": { "layout": "centered", "eyebrow": "Vinyl · Hi-fi · Listening bar", "heading": "Good records for good times.", "subheading": "Over 20,000 new and second-hand LPs, refurbished turntables and a cosy listening bar with Thursday night DJ sets.", "cta_label": "Dig the crates", "cta_link": "#services", "cta2_label": "What's on", "cta2_link": "#gallery", "image": "hero.svg", "note": "" },
+      "blocks": []
+    },
+    "services": {
+      "settings": { "layout": "cards", "eyebrow": "In the shop", "heading": "Spin it, sell it, fix it", "intro": "From first turntable to last grail — we've got you." },
+      "blocks": [
+        { "title": "New & used vinyl", "text": "Soul, jazz, funk, rock, Dutch pressings and fresh new releases every Friday.", "price": "From €8" },
+        { "title": "We buy records", "text": "Bring your collection — fair cash offers on the spot.", "price": "Free valuation" },
+        { "title": "Turntable repair", "text": "Cartridges, belts, servicing and full restorations.", "price": "From €35" },
+        { "title": "Listening bar", "text": "Coffee by day, natural wine by night, records always.", "price": "Thu – Sat" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "Since 1979", "heading": "Three generations of crate diggers.", "text": "Grandpa Joop opened the shop with a box of soul 45s and a borrowed van. We've moved twice, survived the CD era, and we're still here — still playing records out loud and still arguing about the best Stevie Wonder album.", "signature": "The Van Dijk family", "image": "about.svg" },
+      "blocks": [ { "title": "20,000+ LPs", "text": "Restocked daily" }, { "title": "Weekly DJ nights", "text": "Every Thursday" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "What's on", "heading": "Nights at the shop" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "Thursday soul night" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "Regulars", "heading": "Far out reviews", "rating": "4.9 · 1,100 reviews" },
+      "blocks": [
+        { "quote": "Lost a whole afternoon in the jazz section and left with a smile and a stack of Blue Notes.", "author": "Ruben", "detail": "Jazz collector" },
+        { "quote": "They brought my dad's old Technics back to life. Sounds better than new.", "author": "Noa", "detail": "Turntable repair" },
+        { "quote": "Thursday nights here are the best kept secret in town.", "author": "Dex", "detail": "Listening bar regular" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "Visit", "heading": "Come dig with us", "address": "Nobelstraat 79\n3512 BN Utrecht", "phone": "+31 30 231 7979", "email": "spin@groovetheory.nl", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Mon – Wed", "time": "11:00 – 18:00" }, { "day": "Thu – Sat", "time": "10:00 – 23:00" }, { "day": "Sunday", "time": "12:00 – 17:00" } ]
+    },
+    "contact": { "settings": { "eyebrow": "Get in touch", "heading": "Looking for something special?", "text": "Tell us what's on your wantlist and we'll call when it comes in.", "button": "Add to wantlist ♫" } },
+    "footer": { "settings": { "tagline": "Vinyl, hi-fi & listening bar since 1979.", "address": "Nobelstraat 79, Utrecht", "phone": "+31 30 231 7979", "instagram": "https://instagram.com", "facebook": "https://facebook.com" } }
+  }
+}
