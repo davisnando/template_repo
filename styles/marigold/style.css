@@ -38,3 +38,7 @@ body { font-weight: 600; }
 .contact__form, .contact form { border: 2px solid var(--c-border); background: #fff; box-shadow: var(--shadow); }
 .field input, .field textarea { border-radius: 14px; border-width: 2px; }
 .site-footer { background: var(--c-text); border-radius: 40px 40px 0 0; }
+/* Accessible text accents (WCAG AA) */
+.eyebrow { color: #A8432A; }
+.about__signature, .service__price { color: #A8432A; }
+.btn--small { color: var(--c-accent-text); }

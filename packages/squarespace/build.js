@@ -3,7 +3,9 @@
 // sections; every other page uses the owner's normal Squarespace page content.
 import { sections, bodySections } from '../core/sections.js';
 import { staticContext, esc } from '../core/context.js';
-import { baseCss, fontsUrl, colorLabels } from '../core/style.js';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { baseCss, colorLabels, fontFaceCss, loadFonts, FONTS_DIR } from '../core/style.js';
 
 const json = (o) => JSON.stringify(o, null, 2) + '\n';
 
@@ -17,7 +19,7 @@ function env(style, { siteName }) {
   return {
     asset: (f) => `/assets/${f}`,
     siteName,
-    nav: (cls) => `<nav class="${cls}" aria-label="Main">${NAV}</nav>`,
+    nav: (cls) => `<nav class="${cls}" aria-label="${cls === 'footer-nav' ? 'Footer' : 'Main'}">${NAV}</nav>`,
     // Static pages have no form backend; link to email/phone (or swap in a Squarespace form block).
     form: () => `<div class="contact__form contact__cta">
       <a class="btn btn--primary" href="mailto:${esc(visit.email)}">Email ${esc(visit.email)}</a>
@@ -44,8 +46,7 @@ export function buildSquarespace(style, art) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="${fontsUrl(style)}">
+  <link rel="stylesheet" href="/assets/fonts.css">
   <link rel="stylesheet" href="/assets/base.css">
   <link rel="stylesheet" href="/assets/style.css">
   {squarespace-headers}
@@ -97,7 +98,9 @@ ${Object.keys(colorLabels).map((k) => `  --c-${k.replace(/_/g, '-')}: @${k};`).j
     'styles/theme.less': less,
     'assets/base.css': baseCss(),
     'assets/style.css': style.css,
+    'assets/fonts.css': fontFaceCss(style.slug, (f) => `/assets/${f}`),
   };
+  for (const f of loadFonts(style.slug)) files[`assets/${f.file}`] = readFileSync(join(FONTS_DIR, f.file));
   for (const [name, svg] of Object.entries(art)) files[`assets/${name}`] = svg;
   return files;
 }

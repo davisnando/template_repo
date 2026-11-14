@@ -1,0 +1,49 @@
+<section class="section customer color-{{ section.settings.color_scheme }}">
+  <div class="container container--narrow">
+    <h1 class="section__title">{{ 'customer.account.title' | t }}</h1>
+    <p><a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a></p>
+    <div class="account">
+      <div>
+        <h2>{{ 'customer.orders.title' | t }}</h2>
+        {%- paginate customer.orders by 20 -%}
+          {%- if customer.orders.size > 0 -%}
+            <table class="cart__table">
+              <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
+              <thead><tr><th scope="col">{{ 'customer.orders.order_number' | t }}</th><th scope="col">{{ 'customer.orders.date' | t }}</th><th scope="col">{{ 'customer.orders.payment_status' | t }}</th><th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th><th scope="col">{{ 'customer.orders.total' | t }}</th></tr></thead>
+              <tbody>
+                {%- for order in customer.orders -%}
+                  <tr>
+                    <td><a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a></td>
+                    <td>{{ order.created_at | time_tag: format: 'date' }}</td>
+                    <td>{{ order.financial_status_label }}</td>
+                    <td>{{ order.fulfillment_status_label }}</td>
+                    <td>{{ order.total_net_amount | money_with_currency }}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          {%- else -%}
+            <p>{{ 'customer.orders.none' | t }}</p>
+          {%- endif -%}
+          {% render 'pagination', paginate: paginate %}
+        {%- endpaginate -%}
+      </div>
+      <div>
+        <h2>{{ 'customer.account.details' | t }}</h2>
+        {{ customer.default_address | format_address }}
+        <p><a href="{{ routes.account_addresses_url }}">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer account",
+  "tag": "div",
+  "class": "section-main-account",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ]
+}
+{% endschema %}

@@ -21,10 +21,10 @@ export const sections = {
       { id: 'cta_link', type: 'text', label: 'Button link' },
     ],
     render: (c) => `
-<div class="announcement">${c.when('announcement', `<p>${c.t('announcement')}</p>`)}</div>
+${c.when('announcement', `<aside class="announcement" aria-label="${c.tr('sections.announcement.label', 'Announcement')}"><p>${c.t('announcement')}</p></aside>`)}
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">${c.siteName}</span></a>
+    <a class="brand" href="${c.root}"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">${c.siteName}</span></a>
     ${c.nav('site-nav')}
     ${btn(c, 'cta_label', 'cta_link', 'small')}
   </div>
@@ -53,8 +53,8 @@ export const sections = {
       ],
     },
     render: (c) => `
-<section class="hero hero--${c.opt('layout')}">
-  <div class="hero__media">${c.img('image', { cls: 'hero__img', eager: true })}</div>
+<section class="hero hero--${c.opt('layout')}${c.scheme()}">
+  <div class="hero__media">${c.img('image', { cls: 'hero__img', eager: true, sizes: '100vw' })}</div>
   <div class="container hero__inner">
     <div class="hero__copy">
       ${c.when('eyebrow', `<p class="eyebrow">${c.t('eyebrow')}</p>`)}
@@ -85,7 +85,7 @@ export const sections = {
       ],
     },
     render: (c) => `
-<section class="section services services--${c.opt('layout')}" id="services">
+<section class="section services services--${c.opt('layout')}${c.scheme()}" id="services">
   <div class="container">
     <div class="section__head">
       ${c.when('eyebrow', `<p class="eyebrow">${c.t('eyebrow')}</p>`)}
@@ -120,7 +120,7 @@ export const sections = {
       ],
     },
     render: (c) => `
-<section class="section about" id="about">
+<section class="section about${c.scheme()}" id="about">
   <div class="container about__inner">
     <figure class="about__media">${c.img('image', { cls: 'about__img' })}</figure>
     <div class="about__copy">
@@ -148,14 +148,14 @@ export const sections = {
       ],
     },
     render: (c) => `
-<section class="section gallery" id="gallery">
+<section class="section gallery${c.scheme()}" id="gallery">
   <div class="container">
     <div class="section__head">
       ${c.when('eyebrow', `<p class="eyebrow">${c.t('eyebrow')}</p>`)}
       <h2 class="section__title">${c.t('heading')}</h2>
     </div>
     <div class="gallery__grid">${c.each((b) => `
-      <figure class="gallery__item" ${b.attrs()}>${b.img('image', { cls: 'gallery__img' })}${b.when('caption', `<figcaption>${b.t('caption')}</figcaption>`)}</figure>`)}
+      <figure class="gallery__item" ${b.attrs()}>${b.img('image', { cls: 'gallery__img', alt: 'caption', sizes: '(min-width: 990px) 25vw, 50vw' })}${b.when('caption', `<figcaption>${b.t('caption')}</figcaption>`)}</figure>`)}
     </div>
   </div>
 </section>`,
@@ -177,7 +177,7 @@ export const sections = {
       ],
     },
     render: (c) => `
-<section class="section testimonials" id="reviews">
+<section class="section testimonials${c.scheme()}" id="reviews">
   <div class="container">
     <div class="section__head">
       ${c.when('eyebrow', `<p class="eyebrow">${c.t('eyebrow')}</p>`)}
@@ -213,7 +213,7 @@ export const sections = {
       ],
     },
     render: (c) => `
-<section class="section visit" id="visit">
+<section class="section visit${c.scheme()}" id="visit">
   <div class="container visit__inner">
     <div class="visit__copy">
       ${c.when('eyebrow', `<p class="eyebrow">${c.t('eyebrow')}</p>`)}
@@ -224,7 +224,7 @@ export const sections = {
         ${c.when('phone', `<p><a href="tel:${c.t('phone')}">${c.t('phone')}</a></p>`)}
         ${c.when('email', `<p><a href="mailto:${c.t('email')}">${c.t('email')}</a></p>`)}
       </address>
-      ${c.when('directions_link', `<a class="btn btn--ghost" href="${c.url('directions_link')}">Get directions</a>`)}
+      ${c.when('directions_link', `<a class="btn btn--ghost" href="${c.url('directions_link')}">${c.tr('sections.visit.directions', 'Get directions')}</a>`)}
     </div>
     <figure class="visit__media">${c.img('image', { cls: 'visit__img' })}</figure>
   </div>
@@ -240,7 +240,7 @@ export const sections = {
       { id: 'button', type: 'text', label: 'Submit label' },
     ],
     render: (c) => `
-<section class="section contact" id="contact">
+<section class="section contact${c.scheme()}" id="contact">
   <div class="container contact__inner">
     <div class="contact__copy">
       ${c.when('eyebrow', `<p class="eyebrow">${c.t('eyebrow')}</p>`)}
@@ -248,9 +248,9 @@ export const sections = {
       <p class="section__intro">${c.text('text')}</p>
     </div>
     ${c.form(`
-      <div class="field"><label for="cf-name">Name</label><input id="cf-name" type="text" name="contact[name]" autocomplete="name" required></div>
-      <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="contact[email]" autocomplete="email" required></div>
-      <div class="field field--full"><label for="cf-msg">How can we help?</label><textarea id="cf-msg" name="contact[body]" rows="4"></textarea></div>
+      <div class="field"><label for="cf-name-${c.uid}">${c.tr('sections.contact.name', 'Name')}</label><input id="cf-name-${c.uid}" type="text" name="contact[name]" autocomplete="name" required></div>
+      <div class="field"><label for="cf-email-${c.uid}">${c.tr('sections.contact.email', 'Email')}</label><input id="cf-email-${c.uid}" type="email" name="contact[email]" autocomplete="email" required></div>
+      <div class="field field--full"><label for="cf-msg-${c.uid}">${c.tr('sections.contact.message', 'How can we help?')}</label><textarea id="cf-msg-${c.uid}" name="contact[body]" rows="4"></textarea></div>
       <button class="btn btn--primary" type="submit">${c.t('button')}</button>`)}
   </div>
 </section>`,
@@ -269,14 +269,14 @@ export const sections = {
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div class="site-footer__brand">
-      <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">${c.siteName}</span></a>
+      <a class="brand" href="${c.root}"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">${c.siteName}</span></a>
       <p>${c.text('tagline')}</p>
     </div>
-    <div><h3>Visit</h3><p>${c.text('address')}</p>${c.when('phone', `<p><a href="tel:${c.t('phone')}">${c.t('phone')}</a></p>`)}</div>
-    <div><h3>Explore</h3>${c.nav('footer-nav')}</div>
-    <div><h3>Follow</h3><p class="socials">${c.when('instagram', `<a href="${c.url('instagram')}">Instagram</a>`)}${c.when('facebook', `<a href="${c.url('facebook')}">Facebook</a>`)}</p></div>
+    <div><h2>${c.tr('sections.footer.visit', 'Visit')}</h2><p>${c.text('address')}</p>${c.when('phone', `<p><a href="tel:${c.t('phone')}">${c.t('phone')}</a></p>`)}</div>
+    <div><h2>${c.tr('sections.footer.explore', 'Explore')}</h2>${c.nav('footer-nav')}</div>
+    <div><h2>${c.tr('sections.footer.follow', 'Follow')}</h2><p class="socials">${c.when('instagram', `<a href="${c.url('instagram')}">Instagram</a>`)}${c.when('facebook', `<a href="${c.url('facebook')}">Facebook</a>`)}</p></div>
   </div>
-  <div class="container site-footer__legal"><p>&copy; ${c.year} ${c.siteName}. All rights reserved.</p></div>
+  <div class="container site-footer__legal"><p>&copy; ${c.year} ${c.siteName}. ${c.tr('sections.footer.rights', 'All rights reserved.')}</p></div>
 </footer>`,
   },
 };

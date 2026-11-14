@@ -7,7 +7,7 @@ import { ROOT, listStyles } from '../packages/core/style.js';
 
 const out = join(ROOT, 'dist/packages');
 mkdirSync(out, { recursive: true });
-for (const slug of listStyles()) {
+for (const slug of ['local', ...listStyles()]) {
   const zip = join(out, `shopify-${slug}.zip`);
   rmSync(zip, { force: true });
   execFileSync('zip', ['-qr', zip, '.'], { cwd: join(ROOT, 'dist/shopify', slug) });

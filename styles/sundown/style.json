@@ -4,7 +4,7 @@
   "tagline": "Warm, groovy and nostalgic",
   "motif": "retro",
   "fonts": { "head": "'Shrikhand', Georgia, serif", "body": "'DM Sans', system-ui, sans-serif", "google": "family=Shrikhand&family=DM+Sans:wght@400;500;700" },
-  "colors": { "bg": "#F6E8CF", "surface": "#EED6AE", "text": "#3A2318", "muted": "#7A5A45", "accent": "#E0582B", "accent_text": "#FFF6E6", "border": "#D9BC8F", "alt": "#E7A93A" },
+  "colors": { "bg": "#F6E8CF", "surface": "#EED6AE", "text": "#3A2318", "muted": "#7A5A45", "accent": "#B34622", "accent_text": "#FFF6E6", "border": "#D9BC8F", "alt": "#E7A93A" },
   "site": { "name": "Groove Theory", "nav": ["Records", "Turntables", "Listening bar", "Events"] },
   "sections": {
     "header": { "settings": { "announcement": "★ Record Store Day — doors open at 8 am, free coffee for the queue ★", "cta_label": "Visit the shop", "cta_link": "#visit" } },

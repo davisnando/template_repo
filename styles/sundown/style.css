@@ -33,3 +33,8 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 .contact__form, .contact form { background: #FFF6E6; color: var(--c-text); border: 2px solid var(--c-text); box-shadow: 8px 8px 0 var(--c-text); }
 .site-footer { background: var(--c-text); color: var(--c-bg); }
 .site-footer .brand { color: var(--c-alt); }
+/* Display headings keep the brighter retro orange (large text, 3:1) */
+.hero__title, .brand { color: #E0582B; }
+.gallery .eyebrow { color: var(--c-alt); }
+.contact .section__intro { color: #FFF6E6; }
+.services--cards .service:nth-child(2) .service__text { color: var(--c-text); }

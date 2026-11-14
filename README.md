@@ -42,7 +42,8 @@ packages/
 styles/<template>/
   style.json     name, style, tokens (colours, fonts), section layout variants, demo content
   style.css      personality on top of the base
-scripts/         build, validate, screenshots, package
+scripts/         build, validate, theme-check, a11y, screenshots, package, fonts
+docs/            THEME_STORE.md, SQUARESPACE.md
 ```
 
 A section is a single template function. Its output goes through a context object (`c.t('heading')`, `c.each(...)`, `c.img(...)`), which emits one of:
@@ -53,22 +54,26 @@ Adding or changing a section in `sections.js` therefore updates all 12 templates
 
 ## Commands
 
-Requires Node 20+. Screenshots also need Playwright (`npm i -D playwright`).
+Requires Node 20+. Run `npm install` once. Screenshots and the accessibility audit also need Playwright: `npm i -D playwright && npx playwright install chromium`.
 
 ```bash
-npm run build          # dist/{shopify,squarespace,preview}/<template>/
+npm run build          # dist/{shopify,squarespace,preview}/<template>/ + dist/shopify/local (Theme Store build)
 ```
 ```bash
-node scripts/validate.mjs   # structural checks on every generated theme
+npm run check          # repo checks + Shopify Theme Check + WCAG 2.1 AA audit
 ```
 ```bash
 npm run screenshots    # screenshots/<template>/{desktop,full,mobile}.png
 ```
 ```bash
-npm run package        # dist/packages/shopify-<template>.zip
+npm run package        # dist/packages/shopify-<template>.zip and shopify-local.zip
 ```
 
-To build one style only, pass its name, e.g. `node scripts/build.mjs aurum`.
+To build one template only, pass its name, e.g. `node scripts/build.mjs aurum`.
+
+## Selling
+- **Shopify Theme Store:** submit the single theme *Local*, which carries all 12 designs as presets. [docs/THEME_STORE.md](docs/THEME_STORE.md) lists what's already verified and the remaining manual steps.
+- **Squarespace:** read [docs/SQUARESPACE.md](docs/SQUARESPACE.md) first. Code templates only run on 7.0 sites.
 
 ## Installing
 
@@ -78,7 +83,8 @@ To build one style only, pass its name, e.g. `node scripts/build.mjs aurum`.
    You can also run `shopify theme push --path dist/shopify/<template>`.
 3. In the theme editor:
    - Every section, text, button, layout variant (for example hero *split / stacked / centered / full*) and opening-hours row can be edited.
-   - Colours are under **Theme settings → Colors**.
+   - **Theme settings → Style** switches between all 12 designs.
+   - **Colors** holds 3 colour schemes, which any section can use.
    - Uploading an image replaces the bundled placeholder art.
 4. The contact form uses Shopify's built-in `contact` form, so messages go to the store email.
 
@@ -96,5 +102,5 @@ To build one style only, pass its name, e.g. `node scripts/build.mjs aurum`.
 
 ## Notes / limitations
 - The placeholder imagery is procedural SVG, so there are no stock-photo licences to manage. Swap in real photos per site.
-- Fonts load from Google Fonts on both platforms.
-- The generated output has been checked with `scripts/validate.mjs`. It has not yet been uploaded to a live Shopify store or Squarespace site. Before shipping, do one real upload per platform and run `npx @shopify/theme-check-node dist/shopify/<template>`.
+- Fonts are self-hosted, with no Google Fonts requests. All of them are SIL Open Font License.
+- Every build passes Shopify Theme Check with 0 offenses and an axe-core WCAG 2.1 AA audit with 0 violations. None has been uploaded to a live Shopify store or Squarespace site yet, so do one real upload per platform before selling.

@@ -171,14 +171,14 @@ p { margin: 0; }
 /* Footer */
 .site-footer { background: var(--c-text); color: var(--c-bg); padding: 72px 0 32px; }
 .site-footer__inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
-.site-footer h3 { font-family: var(--f-body); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; opacity: .6; margin-bottom: 1rem; }
-.site-footer p { opacity: .85; font-size: .95rem; }
+.site-footer h2 { font-family: var(--f-body); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; }
+.site-footer p { font-size: .95rem; }
 .site-footer__brand p { margin-top: 1rem; max-width: 34ch; }
 .site-footer a { text-decoration: none; }
 .footer-nav ul { flex-direction: column; gap: .5rem; }
 .socials { display: flex; flex-direction: column; gap: .5rem; }
 .site-footer__legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--c-bg) 18%, transparent); }
-.site-footer__legal p { font-size: .82rem; opacity: .55; }
+.site-footer__legal p { font-size: .82rem; }
 
 /* Responsive */
 @media (max-width: 900px) {

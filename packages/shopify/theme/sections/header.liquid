@@ -1,0 +1,115 @@
+{%- liquid
+  assign menu = section.settings.menu
+-%}
+<header class="site-header{% if section.settings.sticky %} site-header--sticky{% endif %} color-{{ section.settings.color_scheme }}">
+  <div class="container site-header__inner">
+    <details class="menu-drawer">
+      <summary class="icon-button" aria-label="{{ 'general.menu.open' | t }}">{% render 'icon', icon: 'menu' %}</summary>
+      <div class="menu-drawer__panel color-{{ section.settings.color_scheme }}">
+        <nav aria-label="{{ 'general.navigation' | t }}">
+          <ul role="list">
+            {%- for link in menu.links -%}
+              <li>
+                <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+                {%- if link.links != blank -%}
+                  <ul role="list">
+                    {%- for child in link.links -%}
+                      <li><a href="{{ child.url }}"{% if child.current %} aria-current="page"{% endif %}>{{ child.title | escape }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+        {%- if shop.customer_accounts_enabled -%}
+          <a class="menu-drawer__account" href="{{ routes.account_url }}">{{ 'customer.account.title' | t }}</a>
+        {%- endif -%}
+      </div>
+    </details>
+
+    <a class="brand" href="{{ routes.root_url }}">
+      {%- if section.settings.logo != blank -%}
+        {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio | round -%}
+        {{ section.settings.logo | image_url: width: 600 | image_tag: class: 'brand__logo', widths: '150, 300, 450, 600', sizes: '300px', width: section.settings.logo_width, height: logo_height, alt: shop.name, loading: 'eager' }}
+      {%- else -%}
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name">{{ shop.name | escape }}</span>
+      {%- endif -%}
+    </a>
+
+    <nav class="site-nav" aria-label="{{ 'general.navigation' | t }}">
+      <ul role="list">
+        {%- for link in menu.links -%}
+          <li>
+            {%- if link.links != blank -%}
+              <details class="dropdown">
+                <summary>{{ link.title | escape }}{% render 'icon', icon: 'chevron' %}</summary>
+                <ul class="dropdown__list color-{{ section.settings.color_scheme }}" role="list">
+                  {%- for child in link.links -%}
+                    <li><a href="{{ child.url }}"{% if child.current %} aria-current="page"{% endif %}>{{ child.title | escape }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              </details>
+            {%- else -%}
+              <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <details class="search-modal">
+        <summary class="icon-button" aria-label="{{ 'general.search.open' | t }}">{% render 'icon', icon: 'search' %}</summary>
+        <div class="search-modal__panel color-{{ section.settings.color_scheme }}">
+          <form action="{{ routes.search_url }}" method="get" role="search" class="search-form" data-predictive-search="{{ routes.predictive_search_url }}">
+            <label class="visually-hidden" for="HeaderSearch-{{ section.id }}">{{ 'general.search.label' | t }}</label>
+            <input id="HeaderSearch-{{ section.id }}" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" autocomplete="off"
+              {%- if settings.predictive_search_enabled %} role="combobox" aria-expanded="false" aria-controls="PredictiveSearch-{{ section.id }}" aria-autocomplete="list"{% endif %}>
+            <input type="hidden" name="options[prefix]" value="last">
+            <button type="submit" class="btn btn--primary">{{ 'general.search.submit' | t }}</button>
+          </form>
+          {%- if settings.predictive_search_enabled -%}
+            <div id="PredictiveSearch-{{ section.id }}" class="predictive-search" aria-live="polite"></div>
+          {%- endif -%}
+        </div>
+      </details>
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="icon-button" href="{{ routes.account_url }}">
+          {% render 'icon', icon: 'account' %}
+          <span class="visually-hidden">{% if customer %}{{ 'customer.account.title' | t }}{% else %}{{ 'customer.log_in' | t }}{% endif %}</span>
+        </a>
+      {%- endif -%}
+      <a class="icon-button cart-link" href="{{ routes.cart_url }}" id="CartLink">
+        {% render 'icon', icon: 'cart' %}
+        <span class="visually-hidden">{{ 'general.cart.title' | t }}</span>
+        {%- if cart.item_count > 0 -%}
+          <span class="cart-count" aria-hidden="true">{{ cart.item_count }}</span>
+          <span class="visually-hidden">{{ 'general.cart.item_count' | t: count: cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+      {%- if section.settings.cta_label != blank -%}
+        <a class="btn btn--small header-cta" href="{{ section.settings.cta_link | default: routes.root_url }}">{{ section.settings.cta_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "div",
+  "class": "section-header",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "range", "id": "logo_width", "label": "Logo width", "min": 50, "max": 300, "step": 10, "unit": "px", "default": 140 },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "sticky", "label": "Sticky header", "default": true },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Book now" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ]
+}
+{% endschema %}

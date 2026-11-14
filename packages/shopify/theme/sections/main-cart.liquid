@@ -1,0 +1,102 @@
+<section class="section cart color-{{ section.settings.color_scheme }}">
+  <div class="container container--narrow">
+    <h1 class="section__title">{{ 'general.cart.title' | t }}</h1>
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" id="CartForm" class="cart__form" data-cart-form novalidate>
+        <table class="cart__table">
+          <caption class="visually-hidden">{{ 'general.cart.title' | t }}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{{ 'general.cart.product' | t }}</th>
+              <th scope="col">{{ 'general.cart.quantity' | t }}</th>
+              <th scope="col">{{ 'general.cart.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr class="cart-item">
+                <td>
+                  <div class="cart-item__product">
+                    {%- if item.image -%}
+                      {{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.image.alt | default: item.product.title, class: 'cart-item__img' }}
+                    {%- endif -%}
+                    <div>
+                      <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                      {%- unless item.product.has_only_default_variant -%}<p><small>{{ item.variant.title | escape }}</small></p>{%- endunless -%}
+                      {%- if item.selling_plan_allocation -%}<p><small>{{ item.selling_plan_allocation.selling_plan.name | escape }}</small></p>{%- endif -%}
+                      {%- for property in item.properties -%}
+                        {%- assign first_char = property.first | slice: 0 -%}
+                        {%- if property.last != blank and first_char != '_' -%}
+                          <p><small>{{ property.first | escape }}: {{ property.last | escape }}</small></p>
+                        {%- endif -%}
+                      {%- endfor -%}
+                      {%- for discount in item.line_level_discount_allocations -%}
+                        <p class="discount"><small>{{ discount.discount_application.title | escape }} (&minus;{{ discount.amount | money }})</small></p>
+                      {%- endfor -%}
+                      {%- if item.unit_price_measurement -%}
+                        <p><small>{{ item.unit_price | money }}/{{ item.unit_price_measurement.reference_unit }}</small></p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <label class="visually-hidden" for="Quantity-{{ forloop.index }}">{{ 'general.cart.quantity_for' | t: title: item.product.title }}</label>
+                  <input id="Quantity-{{ forloop.index }}" class="cart__qty" type="number" name="updates[]" value="{{ item.quantity }}" min="0" step="{{ item.variant.quantity_rule.increment | default: 1 }}">
+                  <a class="cart-item__remove" href="{{ item.url_to_remove }}">{{ 'general.cart.remove' | t }}<span class="visually-hidden"> {{ item.product.title | escape }}</span></a>
+                </td>
+                <td>
+                  {%- if item.original_line_price != item.final_line_price -%}
+                    <s>{{ item.original_line_price | money }}</s>
+                  {%- endif -%}
+                  {{ item.final_line_price | money }}
+                </td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div class="cart__footer">
+          {%- if settings.show_cart_note -%}
+            <div class="field">
+              <label for="CartNote">{{ 'general.cart.note' | t }}</label>
+              <textarea id="CartNote" name="note" rows="3">{{ cart.note }}</textarea>
+            </div>
+          {%- endif -%}
+          <div class="cart__summary">
+            {%- for discount in cart.cart_level_discount_applications -%}
+              <p class="discount">{{ discount.title | escape }} (&minus;{{ discount.total_allocated_amount | money }})</p>
+            {%- endfor -%}
+            <p class="cart__total">{{ 'general.cart.subtotal' | t }} <strong>{{ cart.total_price | money_with_currency }}</strong></p>
+            <p class="cart__taxes">
+              {%- if cart.taxes_included -%}{{ 'general.cart.taxes_included' | t }}{%- else -%}{{ 'general.cart.taxes_at_checkout' | t }}{%- endif -%}
+            </p>
+            <div class="hero__actions">
+              <button class="btn btn--ghost" type="submit" name="update">{{ 'general.cart.update' | t }}</button>
+              <button class="btn btn--primary" type="submit" name="checkout">{{ 'general.cart.checkout' | t }}</button>
+            </div>
+            {%- if additional_checkout_buttons -%}
+              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+      </form>
+    {%- else -%}
+      <p class="empty-state">{{ 'general.cart.empty' | t }}</p>
+      <p><a class="btn btn--primary" href="{{ routes.all_products_collection_url }}">{{ 'general.continue_shopping' | t }}</a></p>
+      {%- if shop.customer_accounts_enabled and customer == null -%}
+        <p>{{ 'general.cart.login_html' | t: link: routes.account_login_url }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "div",
+  "class": "section-main-cart",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ]
+}
+{% endschema %}

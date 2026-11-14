@@ -22,3 +22,7 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 .contact__form, .contact form { background: #FBF7F0; }
 .site-footer { background: #2D2A22; }
 .hero--full .hero__copy { max-width: 820px; }
+/* Darker olive band keeps light text at WCAG AA */
+.testimonials { background: #4A5C3E; }
+.testimonials .eyebrow, .testimonials .rating, .testimonials .rating__stars { color: #FBE7CC; }
+.quote { background: rgb(0 0 0 / .12); }

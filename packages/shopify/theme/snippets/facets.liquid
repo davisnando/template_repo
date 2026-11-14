@@ -1,0 +1,76 @@
+{%- comment -%}
+  Storefront filtering and sorting for collection and search pages.
+  Accepts: results (collection or search), clear_url (string)
+{%- endcomment -%}
+<form class="facets" action="" method="get" data-facets>
+  {%- if results.terms -%}
+    <input type="hidden" name="q" value="{{ results.terms | escape }}">
+    <input type="hidden" name="options[prefix]" value="last">
+  {%- endif -%}
+  <div class="facets__row">
+    {%- for filter in results.filters -%}
+      <details class="facet">
+        <summary>
+          {{ filter.label | escape }}
+          {%- if filter.active_values.size > 0 %} ({{ filter.active_values.size }}){% endif -%}
+          {% render 'icon', icon: 'chevron' %}
+        </summary>
+        <div class="facet__panel">
+          {%- case filter.type -%}
+            {%- when 'price_range' -%}
+              <div class="facet__price">
+                <div class="field">
+                  <label for="Filter-{{ filter.param_name | escape }}-min">{{ 'products.facets.from' | t }} ({{ cart.currency.symbol }})</label>
+                  <input id="Filter-{{ filter.param_name | escape }}-min" type="number" inputmode="decimal" name="{{ filter.min_value.param_name }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}" placeholder="0" {%- if filter.min_value.value %} value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}>
+                </div>
+                <div class="field">
+                  <label for="Filter-{{ filter.param_name | escape }}-max">{{ 'products.facets.to' | t }} ({{ cart.currency.symbol }})</label>
+                  <input id="Filter-{{ filter.param_name | escape }}-max" type="number" inputmode="decimal" name="{{ filter.max_value.param_name }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" {%- if filter.max_value.value %} value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}>
+                </div>
+              </div>
+            {%- else -%}
+              <ul class="facet__list" role="list">
+                {%- for value in filter.values -%}
+                  <li>
+                    <label class="facet__option{% if value.count == 0 and value.active == false %} is-disabled{% endif %}">
+                      <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}"
+                        {%- if value.active %} checked{% endif -%}
+                        {%- if value.count == 0 and value.active == false %} disabled{% endif -%}>
+                      {{ value.label | escape }} <span class="facet__count">({{ value.count }})</span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+          {%- endcase -%}
+        </div>
+      </details>
+    {%- endfor -%}
+    <div class="facets__sort field">
+      <label for="SortBy">{{ 'products.facets.sort_by' | t }}</label>
+      <select id="SortBy" name="sort_by">
+        {%- for option in results.sort_options -%}
+          <option value="{{ option.value | escape }}"{% if option.value == results.sort_by %} selected{% endif %}>{{ option.name | escape }}</option>
+        {%- endfor -%}
+      </select>
+    </div>
+    <button type="submit" class="btn btn--ghost facets__apply">{{ 'products.facets.apply' | t }}</button>
+  </div>
+  <div class="facets__active">
+    {%- for filter in results.filters -%}
+      {%- for value in filter.active_values -%}
+        <a class="pill" href="{{ value.url_to_remove }}">{{ filter.label | escape }}: {{ value.label | escape }} <span aria-hidden="true">&times;</span><span class="visually-hidden">{{ 'products.facets.remove' | t }}</span></a>
+      {%- endfor -%}
+      {%- if filter.type == 'price_range' -%}
+        {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+          <a class="pill" href="{{ filter.url_to_remove }}">
+            {{- filter.min_value.value | default: 0 | money }} &ndash; {{ filter.max_value.value | default: filter.range_max | money -}}
+            <span aria-hidden="true"> &times;</span><span class="visually-hidden">{{ 'products.facets.remove' | t }}</span>
+          </a>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if results.filters != empty -%}
+      <a class="facets__clear" href="{{ clear_url }}">{{ 'products.facets.clear_all' | t }}</a>
+    {%- endif -%}
+  </div>
+</form>

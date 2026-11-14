@@ -4,7 +4,7 @@
   "tagline": "Type-led, Swiss and architectural",
   "motif": "swiss",
   "fonts": { "head": "'Archivo', 'Helvetica Neue', sans-serif", "body": "'Inter', 'Helvetica Neue', sans-serif", "google": "family=Archivo:wght@500;800&family=Inter:wght@400;500;600" },
-  "colors": { "bg": "#F2F1EC", "surface": "#E7E5DE", "text": "#111111", "muted": "#5C5C58", "accent": "#E5321B", "accent_text": "#FFFFFF", "border": "#CFCDC4", "alt": "#111111" },
+  "colors": { "bg": "#F2F1EC", "surface": "#E7E5DE", "text": "#111111", "muted": "#5C5C58", "accent": "#CC2D18", "accent_text": "#FFFFFF", "border": "#CFCDC4", "alt": "#111111" },
   "site": { "name": "Studio Kade", "nav": ["Work", "Services", "Studio", "Contact"] },
   "sections": {
     "header": { "settings": { "announcement": "", "cta_label": "Start a project", "cta_link": "#contact" } },

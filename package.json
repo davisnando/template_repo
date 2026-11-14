@@ -5,9 +5,18 @@
   "description": "Website templates for local businesses, built once and shipped as Shopify themes and Squarespace templates.",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "check": "node scripts/validate.mjs && node scripts/theme-check.mjs && node scripts/a11y.mjs",
+    "check:shopify": "node scripts/theme-check.mjs",
+    "check:a11y": "node scripts/a11y.mjs",
     "screenshots": "node scripts/screenshots.mjs",
     "package": "node scripts/package.mjs",
-    "check:shopify": "for d in dist/shopify/*/; do npx --yes @shopify/theme-check-node@latest \"$d\" || exit 1; done"
+    "fonts": "node scripts/fetch-fonts.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@shopify/theme-check-node": "^4.0.0",
+    "axe-core": "^4.14.0"
+  }
 }

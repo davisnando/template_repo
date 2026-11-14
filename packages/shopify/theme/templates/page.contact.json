@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "main": { "type": "main-page", "settings": {} },
+    "form": { "type": "contact", "settings": { "eyebrow": "", "heading": "Get in touch", "text": "We'll reply within one working day.", "button": "Send message" } }
+  },
+  "order": ["main", "form"]
+}

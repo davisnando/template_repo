@@ -340,6 +340,10 @@ function swiss(w, h, p, seed) {
 
 const motifs = { minimalist, futuristic, luxury, brutalist, professional, elegant, friendly, organic, athletic, pastel, retro, swiss };
 
+/** Intrinsic sizes of the bundled artwork (used for width/height attributes). */
+export const ART_SIZES = { 'hero.svg': [1600, 1100], 'about.svg': [1000, 1250], 'map.svg': [1200, 900] };
+for (let i = 1; i <= 4; i++) ART_SIZES[`gallery-${i}.svg`] = [1000, 1000];
+
 /** Returns { filename: svgString } for one style. */
 export function artworkFor(motif, palette, dark = false) {
   const draw = motifs[motif];

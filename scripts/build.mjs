@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { ROOT, listStyles, loadStyle } from '../packages/core/style.js';
 import { artworkFor } from '../packages/core/art.js';
 import { buildPreview } from '../packages/preview/build.js';
-import { buildShopify } from '../packages/shopify/build.js';
+import { buildShopify, THEME_NAME } from '../packages/shopify/build.js';
 import { buildSquarespace } from '../packages/squarespace/build.js';
 
 const targets = { preview: buildPreview, shopify: buildShopify, squarespace: buildSquarespace };
@@ -26,4 +26,15 @@ for (const slug of styles) {
     }
   }
   console.log(`✓ ${slug}`);
+}
+
+// Theme Store submission: one theme ("Local") with every template as a preset.
+if (!only.length) {
+  const out = join(ROOT, 'dist', 'shopify', 'local');
+  rmSync(out, { recursive: true, force: true });
+  for (const [path, content] of Object.entries(buildShopify(loadStyle(listStyles()[0]), null, { name: THEME_NAME }))) {
+    mkdirSync(dirname(join(out, path)), { recursive: true });
+    writeFileSync(join(out, path), content);
+  }
+  console.log('✓ local (Theme Store submission)');
 }

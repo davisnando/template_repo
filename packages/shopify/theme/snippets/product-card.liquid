@@ -1,0 +1,21 @@
+{%- comment -%} Accepts: product (required), lazy (boolean, default true) {%- endcomment -%}
+<div class="card">
+  <a class="card__link" href="{{ product.url }}">
+    <div class="card__media">
+      {%- if product.featured_media -%}
+        {%- liquid
+          if lazy == false
+            assign loading = 'eager'
+          else
+            assign loading = 'lazy'
+          endif
+        -%}
+        {{ product.featured_media | image_url: width: 800 | image_tag: loading: loading, widths: '300, 400, 600, 800', sizes: '(min-width: 990px) 25vw, 50vw', alt: product.featured_media.alt | default: product.title }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+      {%- endif -%}
+    </div>
+    <h3 class="card__title">{{ product.title | escape }}</h3>
+  </a>
+  {% render 'price', product: product %}
+</div>

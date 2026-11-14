@@ -1,0 +1,41 @@
+<section class="section customer color-{{ section.settings.color_scheme }}">
+  <div class="container container--narrow">
+    <h1 class="section__title">{{ 'customer.login.title' | t }}</h1>
+    <details class="accordion customer__recover">
+      <summary>{{ 'customer.recover_password.title' | t }}{% render 'icon', icon: 'chevron' %}</summary>
+      {%- form 'recover_customer_password' -%}
+        <p>{{ 'customer.recover_password.subtext' | t }}</p>
+        {%- if form.posted_successfully? -%}<p class="form__ok" role="status">{{ 'customer.recover_password.success' | t }}</p>{%- endif -%}
+        {%- if form.errors -%}<div class="form__errors" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
+        <div class="field"><label for="RecoverEmail">{{ 'customer.login.email' | t }}</label><input id="RecoverEmail" type="email" name="email" autocomplete="email" required></div>
+        <button type="submit" class="btn btn--ghost">{{ 'customer.recover_password.submit' | t }}</button>
+      {%- endform -%}
+    </details>
+    {%- form 'customer_login', novalidate: 'novalidate', class: 'customer__form' -%}
+      {%- if form.errors -%}<div class="form__errors" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
+      <div class="field"><label for="CustomerEmail">{{ 'customer.login.email' | t }}</label><input id="CustomerEmail" type="email" name="customer[email]" autocomplete="email" required></div>
+      {%- if form.password_needed -%}
+        <div class="field"><label for="CustomerPassword">{{ 'customer.login.password' | t }}</label><input id="CustomerPassword" type="password" name="customer[password]" autocomplete="current-password" required></div>
+      {%- endif -%}
+      <button type="submit" class="btn btn--primary">{{ 'customer.login.sign_in' | t }}</button>
+      <p><a href="{{ routes.account_register_url }}">{{ 'customer.login.create_account' | t }}</a></p>
+    {%- endform -%}
+    {%- if shop.checkout.guest_login -%}
+      {%- form 'guest_login' -%}
+        <h2>{{ 'customer.login.guest_title' | t }}</h2>
+        <button type="submit" class="btn btn--ghost">{{ 'customer.login.guest_continue' | t }}</button>
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer login",
+  "tag": "div",
+  "class": "section-main-login",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ]
+}
+{% endschema %}

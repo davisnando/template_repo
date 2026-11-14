@@ -29,3 +29,6 @@
 .contact__form, .contact form { background: #fff; }
 .site-footer { background: var(--c-text); margin: 0 12px 12px; border-radius: var(--radius); }
 @media (max-width: 900px) { .site-header__inner { padding-inline: 18px; } }
+/* Accessible text on tinted tiles (WCAG AA) */
+.hero--split .stat dt, .services--bento .service:nth-child(3) .service__text, .services--bento .service:nth-child(4) .service__text { color: var(--c-text); }
+.quote:nth-child(2) .quote__by span { color: #fff; }

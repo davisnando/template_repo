@@ -32,3 +32,13 @@ export function tokenCss(style) {
 
 /** Nav labels are paired with the page anchors used in the demo homepage. */
 export const navAnchors = ['#services', '#about', '#gallery', '#visit'];
+
+export const FONTS_DIR = join(ROOT, 'packages/core/fonts');
+export const loadFonts = (slug) => JSON.parse(readFileSync(join(STYLES_DIR, slug, 'fonts.json'), 'utf8'));
+
+/** @font-face rules for a template's self-hosted fonts; `url(file)` maps a font file to its served URL. */
+export function fontFaceCss(slug, url) {
+  return loadFonts(slug)
+    .map((f) => `@font-face { font-family: '${f.family}'; font-style: ${f.style}; font-weight: ${f.weight}; font-display: swap; src: url(${url(f.file)}) format('woff2'); unicode-range: ${f.unicodeRange}; }`)
+    .join('\n');
+}

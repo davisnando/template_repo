@@ -1,0 +1,25 @@
+<section class="section related-products color-{{ section.settings.color_scheme }}" data-recommendations="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
+  {%- if recommendations.performed and recommendations.products_count > 0 -%}
+    <div class="container">
+      <div class="section__head"><h2 class="section__title">{{ section.settings.heading | escape }}</h2></div>
+      <ul class="product-grid" role="list">
+        {%- for recommendation in recommendations.products -%}
+          <li>{% render 'product-card', product: recommendation %}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Related products",
+  "tag": "div",
+  "class": "section-related-products",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "You may also like" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 2, "max": 8, "step": 1, "default": 4 },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ]
+}
+{% endschema %}

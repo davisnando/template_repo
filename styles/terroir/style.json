@@ -4,7 +4,7 @@
   "tagline": "Earthy, textured and seasonal",
   "motif": "organic",
   "fonts": { "head": "'Fraunces', Georgia, serif", "body": "'Work Sans', system-ui, sans-serif", "google": "family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600" },
-  "colors": { "bg": "#F4EEE3", "surface": "#EADFCC", "text": "#2D2A22", "muted": "#6E6656", "accent": "#B5562E", "accent_text": "#FFFFFF", "border": "#D9CBB2", "alt": "#5E7350" },
+  "colors": { "bg": "#F4EEE3", "surface": "#EADFCC", "text": "#2D2A22", "muted": "#675F50", "accent": "#A84F2A", "accent_text": "#FFFFFF", "border": "#D9CBB2", "alt": "#5A6F4C" },
   "site": { "name": "Hearth & Field", "nav": ["Menu", "Our farm", "Bakery", "Visit"] },
   "sections": {
     "header": { "settings": { "announcement": "Sunday long-table lunches are back — bookings open for spring", "cta_label": "Book a table", "cta_link": "#contact" } },
