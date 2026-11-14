@@ -1,0 +1,24 @@
+:root { --radius: 18px; --radius-btn: 10px; --fw-head: 500; --head-track: -0.035em; --shadow: 0 0 0 1px rgb(255 255 255 / .04), 0 20px 60px -20px rgb(79 240 255 / .15); }
+body { background: radial-gradient(1200px 600px at 80% -10%, rgb(139 92 246 / .22), transparent 60%), radial-gradient(900px 500px at 0% 20%, rgb(79 240 255 / .10), transparent 60%), var(--c-bg); background-attachment: fixed; }
+.eyebrow, .service__price, .hero__note, .stat dt { font-family: 'JetBrains Mono', monospace; letter-spacing: .04em; text-transform: none; }
+.eyebrow { color: var(--c-accent); }
+.announcement { background: linear-gradient(90deg, var(--c-alt), var(--c-accent)); color: #05060A; font-weight: 600; }
+.site-header { background: rgb(7 8 13 / .6); }
+.brand__mark { border-radius: 4px; background: linear-gradient(135deg, var(--c-accent), var(--c-alt)); box-shadow: 0 0 16px var(--c-accent); }
+.btn--primary { background: linear-gradient(135deg, var(--c-accent), #9CF7FF); box-shadow: 0 0 0 1px rgb(79 240 255 / .4), 0 8px 30px -6px rgb(79 240 255 / .6); }
+.btn--small { background: rgb(255 255 255 / .08); color: var(--c-text); border-color: var(--c-border); }
+.btn--ghost { border-color: var(--c-border); background: rgb(255 255 255 / .03); }
+.hero__title { background: linear-gradient(180deg, #fff 30%, #9aa3c7); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero--split .hero__media { border: 1px solid var(--c-border); box-shadow: 0 30px 80px -30px rgb(139 92 246 / .6); }
+.stat dd { color: var(--c-accent); text-shadow: 0 0 24px rgb(79 240 255 / .5); }
+.hero__stats { padding: 20px 24px; border: 1px solid var(--c-border); border-radius: var(--radius); background: rgb(255 255 255 / .03); backdrop-filter: blur(10px); width: fit-content; }
+.services--cards .service { background: linear-gradient(180deg, rgb(255 255 255 / .05), rgb(255 255 255 / .01)); backdrop-filter: blur(12px); position: relative; }
+.services--cards .service::before { content: ""; display: block; width: 40px; height: 3px; margin-bottom: 24px; background: linear-gradient(90deg, var(--c-accent), var(--c-alt)); border-radius: 2px; }
+.testimonials { background: transparent; }
+.quote { background: rgb(255 255 255 / .03); }
+.about__points li { border-color: var(--c-border); }
+.about__points strong { color: var(--c-accent); }
+.field input, .field textarea { background: rgb(0 0 0 / .3); }
+.contact__form, .contact form { background: rgb(255 255 255 / .03); backdrop-filter: blur(12px); }
+.site-footer { background: #040509; color: var(--c-text); border-top: 1px solid var(--c-border); }
+.site-footer__legal { border-color: var(--c-border); }

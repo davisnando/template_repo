@@ -1,0 +1,17 @@
+:root { --radius: 2px; --radius-btn: 2px; --fw-head: 400; --head-track: -0.01em; --head-lh: 1; --shadow: none; }
+.brand { font-size: 1.6rem; }
+.brand__mark { border-radius: 0; width: 10px; height: 10px; }
+.eyebrow { color: var(--c-muted); font-weight: 500; }
+.hero__title em, .section__title { font-style: normal; }
+.hero--stacked { padding-top: clamp(40px, 6vw, 80px); }
+.hero--stacked .hero__title { font-size: clamp(3.2rem, 7vw, 6.4rem); }
+.hero--stacked .hero__inner { padding-bottom: 48px; }
+.services--list .service__title { font-size: 1.9rem; font-family: var(--f-head); }
+.site-header { background: var(--c-bg); }
+.testimonials { background: var(--c-bg); }
+.quote { border: 0; border-top: 1px solid var(--c-text); border-radius: 0; padding: 28px 0 0; background: transparent; }
+.quote__text { font-family: var(--f-head); font-size: 1.6rem; line-height: 1.25; }
+.contact__form, .contact form { background: transparent; border: 0; padding: 0; }
+.field input, .field textarea { background: transparent; border: 0; border-bottom: 1px solid var(--c-text); border-radius: 0; padding-left: 0; }
+.site-footer { background: var(--c-surface); color: var(--c-text); }
+.site-footer__legal { border-color: var(--c-border); }

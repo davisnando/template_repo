@@ -1,0 +1,13 @@
+{
+  "name": "local-business-templates",
+  "private": true,
+  "type": "module",
+  "description": "Website templates for local businesses, built once and shipped as Shopify themes and Squarespace templates.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "package": "node scripts/package.mjs",
+    "check:shopify": "for d in dist/shopify/*/; do npx --yes @shopify/theme-check-node@latest \"$d\" || exit 1; done"
+  },
+  "engines": { "node": ">=20" }
+}

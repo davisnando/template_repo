@@ -1,0 +1,46 @@
+{
+  "name": "Futuristic",
+  "motif": "futuristic",
+  "dark": true,
+  "fonts": { "head": "'Space Grotesk', system-ui, sans-serif", "body": "'Inter', system-ui, sans-serif", "mono": "'JetBrains Mono', monospace", "google": "family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500" },
+  "colors": { "bg": "#07080D", "surface": "#10121C", "text": "#EEF1FF", "muted": "#9097B4", "accent": "#4FF0FF", "accent_text": "#05060A", "border": "#22263A", "alt": "#8B5CF6" },
+  "site": { "name": "Voltline", "nav": ["Services", "Diagnostics", "Fleet", "Book"] },
+  "sections": {
+    "header": { "settings": { "announcement": "⚡ Same-day battery diagnostics — now in Rotterdam-Zuid", "cta_label": "Book service", "cta_link": "#contact" } },
+    "hero": {
+      "settings": { "layout": "split", "eyebrow": "EV & e-bike service lab", "heading": "Service for the electric age.", "subheading": "Certified technicians, real-time diagnostics and battery health reports for e-bikes, scooters and EVs — fixed while you wait.", "cta_label": "Book a slot", "cta_link": "#contact", "cta2_label": "Run diagnostics", "cta2_link": "#services", "image": "hero.svg", "note": "Average turnaround: 3 h 40 min" },
+      "blocks": [ { "value": "98.7%", "label": "First-time fix rate" }, { "value": "14k", "label": "Batteries tested" }, { "value": "<4h", "label": "Typical turnaround" } ]
+    },
+    "services": {
+      "settings": { "layout": "cards", "eyebrow": "// Services", "heading": "Precision maintenance, zero guesswork", "intro": "Every job starts with a full digital scan so you see exactly what we see." },
+      "blocks": [
+        { "title": "Battery health scan", "text": "Cell-level analysis with a downloadable health report and range estimate.", "price": "€39 · 30 min" },
+        { "title": "Motor & controller", "text": "Firmware updates, controller diagnostics and hub-motor repair.", "price": "From €79" },
+        { "title": "EV quick service", "text": "Tyres, brakes, cabin filters and software checks for all major EV brands.", "price": "From €129" },
+        { "title": "Fleet contracts", "text": "Scheduled maintenance and live dashboards for delivery and rental fleets.", "price": "Custom quote" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "// About", "heading": "Built by engineers, run like a lab.", "text": "Voltline was founded by two battery engineers who were tired of guesswork repairs. Our workshop combines automotive-grade tooling with transparent pricing and live job tracking.", "signature": "", "image": "about.svg" },
+      "blocks": [ { "title": "Live tracking", "text": "Follow your repair in real time" }, { "title": "12-month warranty", "text": "On all parts and labour" }, { "title": "Certified", "text": "Bosch, Shimano & Tesla trained" }, { "title": "Eco-recycling", "text": "100% battery take-back" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "// Lab", "heading": "Inside the workshop" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "Diagnostics bay" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "// Reviews", "heading": "Riders and drivers trust the data", "rating": "4.9 / 5 · 1,280 verified reviews" },
+      "blocks": [
+        { "quote": "They showed me the battery report on a screen before touching anything. Fixed in two hours.", "author": "Daan R.", "detail": "VanMoof S3 owner" },
+        { "quote": "Our 40-bike delivery fleet has had zero unplanned downtime since we switched.", "author": "Priya M.", "detail": "Ops lead, RapidCart" },
+        { "quote": "Finally a garage that actually understands EV software.", "author": "Jonas B.", "detail": "Model 3 driver" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "// Location", "heading": "Drop in or dock in", "address": "Kraanstraat 8, Unit 4\n3071 AA Rotterdam", "phone": "+31 10 555 0101", "email": "lab@voltline.io", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Mon – Fri", "time": "08:00 – 19:00" }, { "day": "Saturday", "time": "09:00 – 16:00" }, { "day": "Sunday", "time": "Emergency line only" } ]
+    },
+    "contact": { "settings": { "eyebrow": "// Book", "heading": "Reserve your diagnostics slot", "text": "Tell us what you ride or drive and we'll confirm a slot within 15 minutes during opening hours.", "button": "Request slot →" } },
+    "footer": { "settings": { "tagline": "EV & e-bike service lab. Data-driven repairs, transparent pricing.", "address": "Kraanstraat 8, Rotterdam", "phone": "+31 10 555 0101", "instagram": "https://instagram.com", "facebook": "https://facebook.com" } }
+  }
+}

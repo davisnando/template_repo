@@ -1,0 +1,46 @@
+{
+  "name": "Luxury",
+  "motif": "luxury",
+  "dark": true,
+  "fonts": { "head": "'Cormorant Garamond', Georgia, serif", "body": "'Jost', system-ui, sans-serif", "google": "family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500" },
+  "colors": { "bg": "#0E0D0B", "surface": "#1A1815", "text": "#EFE8DA", "muted": "#A79E8C", "accent": "#C8A96A", "accent_text": "#0E0D0B", "border": "#2E2A23", "alt": "#7A6A4B" },
+  "site": { "name": "Maison Aurelle", "nav": ["Rituals", "The House", "Gift cards", "Reserve"] },
+  "sections": {
+    "header": { "settings": { "announcement": "", "cta_label": "Reserve", "cta_link": "#contact" } },
+    "hero": {
+      "settings": { "layout": "full", "eyebrow": "Day spa & wellness · Antwerp", "heading": "An hour that belongs only to you.", "subheading": "Signature rituals, hot-stone therapy and private hammam suites in a restored 19th-century townhouse.", "cta_label": "Reserve a ritual", "cta_link": "#contact", "cta2_label": "Explore rituals", "cta2_link": "#services", "image": "hero.svg", "note": "" },
+      "blocks": []
+    },
+    "services": {
+      "settings": { "layout": "list", "eyebrow": "Rituals", "heading": "The signature menu", "intro": "Each ritual begins with a tea ceremony and ends in our quiet lounge." },
+      "blocks": [
+        { "title": "Aurelle signature", "text": "Full-body massage with warmed basalt stones and gold-infused oils.", "price": "90 min · €185" },
+        { "title": "Private hammam", "text": "A secluded steam suite for two with black-soap exfoliation.", "price": "120 min · €260" },
+        { "title": "Radiance facial", "text": "Lymphatic sculpting and a bespoke serum blended for your skin.", "price": "75 min · €165" },
+        { "title": "Half-day retreat", "text": "Massage, facial, hammam and a light lunch in the garden room.", "price": "4 hrs · €420" }
+      ]
+    },
+    "about": {
+      "settings": { "eyebrow": "The house", "heading": "Quiet luxury, unhurried care.", "text": "Behind a discreet door on the Cogels-Osylei lies a house devoted to stillness. Our therapists hold an average of twelve years' experience, and every product we use is crafted in small batches in Provence.", "signature": "Maison Aurelle", "image": "about.svg" },
+      "blocks": [ { "title": "Six suites", "text": "Never more than six guests" }, { "title": "Since 2009", "text": "Family owned" } ]
+    },
+    "gallery": {
+      "settings": { "eyebrow": "Atmosphere", "heading": "Inside the house" },
+      "blocks": [ { "image": "gallery-1.svg", "caption": "" }, { "image": "gallery-2.svg", "caption": "" }, { "image": "gallery-3.svg", "caption": "" }, { "image": "gallery-4.svg", "caption": "" } ]
+    },
+    "testimonials": {
+      "settings": { "eyebrow": "Guests", "heading": "In their words", "rating": "Condé Nast Traveller — Top 10 spas in Belgium" },
+      "blocks": [
+        { "quote": "The most restorative afternoon I have ever spent. Every detail is considered.", "author": "Isabelle D.", "detail": "Half-day retreat" },
+        { "quote": "Discreet, beautiful and genuinely calming. Worth every cent.", "author": "Pieter V.", "detail": "Private hammam" },
+        { "quote": "I left feeling taller. The hot-stone ritual is extraordinary.", "author": "Camille R.", "detail": "Aurelle signature" }
+      ]
+    },
+    "visit": {
+      "settings": { "eyebrow": "Find us", "heading": "Visit the house", "address": "Cogels-Osylei 41\n2600 Antwerpen", "phone": "+32 3 200 41 41", "email": "concierge@maisonaurelle.be", "directions_link": "https://maps.google.com", "image": "map.svg" },
+      "blocks": [ { "day": "Wednesday – Sunday", "time": "10:00 – 21:00" }, { "day": "Monday – Tuesday", "time": "Private bookings" } ]
+    },
+    "contact": { "settings": { "eyebrow": "Reservations", "heading": "Our concierge will arrange everything", "text": "Share your preferred date and ritual. We confirm every reservation personally.", "button": "Request reservation" } },
+    "footer": { "settings": { "tagline": "A day spa devoted to stillness, in a restored Antwerp townhouse.", "address": "Cogels-Osylei 41, Antwerpen", "phone": "+32 3 200 41 41", "instagram": "https://instagram.com", "facebook": "" } }
+  }
+}

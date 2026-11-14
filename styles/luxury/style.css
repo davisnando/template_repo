@@ -1,0 +1,27 @@
+:root { --radius: 0px; --radius-btn: 0px; --fw-head: 400; --head-track: 0; --head-lh: 1.02; --shadow: none; --h1: clamp(3rem, 7vw, 6.2rem); --h2: clamp(2.2rem, 4.4vw, 3.8rem); }
+body { font-weight: 300; }
+.eyebrow { letter-spacing: .32em; font-weight: 400; font-size: .72rem; }
+.eyebrow::before { content: ""; display: inline-block; width: 32px; height: 1px; background: var(--c-accent); vertical-align: middle; margin-right: 14px; }
+.hero--full .hero__copy { max-width: 760px; }
+.hero__title, .section__title { font-style: italic; }
+.brand { font-size: 1.6rem; font-style: italic; letter-spacing: .02em; }
+.brand__mark { display: none; }
+.site-header { background: rgb(14 13 11 / .7); }
+.site-nav a { text-transform: uppercase; letter-spacing: .2em; font-size: .72rem; }
+.btn { text-transform: uppercase; letter-spacing: .22em; font-size: .74rem; font-weight: 500; padding: 1.3em 2.2em; }
+.btn--small { background: transparent; color: var(--c-accent); border-color: var(--c-accent); }
+.btn--ghost { border-color: rgb(255 255 255 / .4); }
+.services--list .service { padding: 36px 0; }
+.services--list .service__title { font-family: var(--f-head); font-size: 2rem; font-style: italic; }
+.service__price { font-family: var(--f-head); font-size: 1.3rem; font-weight: 400; }
+.section__head { margin-inline: auto; text-align: center; }
+.section__intro { margin-inline: auto; }
+.about__media { outline: 1px solid var(--c-accent); outline-offset: 14px; }
+.about__signature { color: var(--c-accent); }
+.testimonials__grid { gap: 0; }
+.quote { background: transparent; border: 0; border-left: 1px solid var(--c-border); border-radius: 0; text-align: center; }
+.quote__text { font-family: var(--f-head); font-style: italic; font-size: 1.55rem; line-height: 1.35; }
+.rating { color: var(--c-accent); letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
+.rating__stars { display: none; }
+.site-footer { background: #090807; color: var(--c-text); border-top: 1px solid var(--c-border); }
+.site-footer__legal { border-color: var(--c-border); }

@@ -1,0 +1,28 @@
+:root { --radius: 4px; --radius-btn: 999px; --fw-head: 400; --head-track: -0.01em; --head-lh: 1.1; --shadow: none; --h1: clamp(2.6rem, 5vw, 4.4rem); }
+.announcement { background: var(--c-surface); color: var(--c-text); font-size: .8rem; letter-spacing: .06em; }
+.brand { font-size: 1.55rem; font-style: italic; }
+.brand__mark { background: none; border: 1px solid var(--c-accent); width: 18px; height: 18px; }
+.site-header { background: var(--c-bg); }
+.eyebrow { font-family: var(--f-head); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.1rem; font-weight: 400; }
+.hero__title { font-style: normal; }
+.hero--centered .hero__media { border-radius: 600px 600px 0 0; max-width: 980px; margin-inline: auto; width: calc(100% - var(--gutter) * 2); }
+.section__head { text-align: center; margin-inline: auto; }
+.section__intro { margin-inline: auto; }
+.services--grid .services__list { border: 0; gap: 28px; }
+.services--grid .service { border: 1px solid var(--c-border); border-radius: 300px 300px 4px 4px; padding: 80px 36px 40px; text-align: center; background: #fff; }
+.service__title { font-size: 1.6rem; }
+.service__price { font-family: var(--f-head); font-style: italic; font-size: 1.1rem; font-weight: 400; }
+.about__media { border-radius: 500px 500px 4px 4px; }
+.about__signature { color: var(--c-accent); }
+.gallery__item { border-radius: 4px; }
+.gallery__item:nth-child(1) { border-radius: 400px 400px 4px 4px; }
+.gallery__item figcaption { font-style: italic; font-family: var(--f-head); }
+.quote { text-align: center; background: #fff; }
+.quote__text { font-family: var(--f-head); font-style: italic; font-size: 1.3rem; }
+.quote__by { align-items: center; }
+.rating__stars { color: var(--c-accent); }
+.contact__form, .contact form { background: #fff; }
+.site-footer { background: var(--c-surface); color: var(--c-text); }
+.site-footer__legal { border-color: var(--c-border); }
+.hero--centered { padding-top: clamp(40px, 5vw, 72px); }
+.hero--centered .hero__copy { max-width: 760px; }
