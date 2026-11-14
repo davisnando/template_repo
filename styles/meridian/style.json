@@ -1,0 +1,214 @@
+{
+  "name": "Meridian",
+  "style": "Professional",
+  "tagline": "Clear, credible and data-led",
+  "motif": "professional",
+  "fonts": {
+    "head": "'Manrope', system-ui, sans-serif",
+    "body": "'Inter', system-ui, sans-serif",
+    "google": "family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600"
+  },
+  "colors": {
+    "bg": "#FFFFFF",
+    "surface": "#F3F6FB",
+    "text": "#0F2A44",
+    "muted": "#5A6B80",
+    "accent": "#2F6FED",
+    "accent_text": "#FFFFFF",
+    "border": "#E1E7EF",
+    "alt": "#14B8A6"
+  },
+  "site": {
+    "name": "Harbor & Pine",
+    "nav": [
+      "Services",
+      "Industries",
+      "About",
+      "Contact"
+    ]
+  },
+  "sections": {
+    "header": {
+      "settings": {
+        "announcement": "",
+        "cta_label": "Free consultation",
+        "cta_link": "#contact"
+      }
+    },
+    "hero": {
+      "settings": {
+        "layout": "split",
+        "eyebrow": "Accounting & tax advisory",
+        "heading": "Clear numbers. Confident decisions.",
+        "subheading": "Bookkeeping, tax returns and financial planning for local businesses and families — handled by chartered accountants who pick up the phone.",
+        "cta_label": "Book a free consultation",
+        "cta_link": "#contact",
+        "cta2_label": "Our services",
+        "cta2_link": "#services",
+        "image": "hero.svg",
+        "note": "No obligation · Response within one business day"
+      },
+      "blocks": [
+        {
+          "value": "25+",
+          "label": "Years in practice"
+        },
+        {
+          "value": "600",
+          "label": "Local clients"
+        },
+        {
+          "value": "€4.1M",
+          "label": "Tax saved last year"
+        }
+      ]
+    },
+    "services": {
+      "settings": {
+        "layout": "cards",
+        "eyebrow": "Services",
+        "heading": "Everything your finances need, under one roof",
+        "intro": "Fixed monthly fees, a dedicated accountant and a secure client portal."
+      },
+      "blocks": [
+        {
+          "title": "Bookkeeping",
+          "text": "Monthly reconciliations, payroll and real-time reporting in Xero or Exact.",
+          "price": "From €195 / month"
+        },
+        {
+          "title": "Tax returns",
+          "text": "Corporate and personal tax filings, VAT and deadline management.",
+          "price": "From €350"
+        },
+        {
+          "title": "Advisory",
+          "text": "Cash-flow forecasting, financing and growth planning for SMEs.",
+          "price": "Hourly or retainer"
+        },
+        {
+          "title": "Business setup",
+          "text": "Entity selection, registration and first-year financial setup.",
+          "price": "Fixed fee €900"
+        }
+      ]
+    },
+    "about": {
+      "settings": {
+        "eyebrow": "About the firm",
+        "heading": "A partner that knows your business by name.",
+        "text": "Harbor & Pine is an independent firm of 18 accountants and advisors. We've served the region's shops, clinics, contractors and families since 1999 — and most of our clients came through a referral.",
+        "signature": "",
+        "image": "about.svg"
+      },
+      "blocks": [
+        {
+          "title": "Chartered",
+          "text": "ICAEW & NBA registered"
+        },
+        {
+          "title": "Secure",
+          "text": "ISO 27001 client portal"
+        },
+        {
+          "title": "Fixed fees",
+          "text": "No surprise invoices"
+        },
+        {
+          "title": "Local",
+          "text": "Two offices in the region"
+        }
+      ]
+    },
+    "gallery": {
+      "settings": {
+        "eyebrow": "Results",
+        "heading": "Reporting that makes sense"
+      },
+      "blocks": [
+        {
+          "image": "gallery-1.svg",
+          "caption": "Monthly dashboard"
+        },
+        {
+          "image": "gallery-2.svg",
+          "caption": ""
+        },
+        {
+          "image": "gallery-3.svg",
+          "caption": ""
+        },
+        {
+          "image": "gallery-4.svg",
+          "caption": ""
+        }
+      ]
+    },
+    "testimonials": {
+      "settings": {
+        "eyebrow": "Client stories",
+        "heading": "Trusted by 600 local businesses",
+        "rating": "4.9 average · 240 reviews"
+      },
+      "blocks": [
+        {
+          "quote": "They found €18,000 in deductions our previous accountant missed. Responsive and thorough.",
+          "author": "Mark de Vries",
+          "detail": "Owner, De Vries Installaties"
+        },
+        {
+          "quote": "The monthly dashboard changed how we run the clinic. We finally know our numbers.",
+          "author": "Dr. Elena Ruiz",
+          "detail": "Founder, Ruiz Physio"
+        },
+        {
+          "quote": "Clear fees, clear advice, no jargon. Exactly what a small business needs.",
+          "author": "Sam Okafor",
+          "detail": "Okafor Bakery"
+        }
+      ]
+    },
+    "visit": {
+      "settings": {
+        "eyebrow": "Office",
+        "heading": "Meet us in person",
+        "address": "Havenkade 22, 3rd floor\n2311 AA Leiden",
+        "phone": "+31 71 512 3400",
+        "email": "advice@harborpine.com",
+        "directions_link": "https://maps.google.com",
+        "image": "map.svg"
+      },
+      "blocks": [
+        {
+          "day": "Monday – Friday",
+          "time": "08:30 – 17:30"
+        },
+        {
+          "day": "Evenings",
+          "time": "By appointment"
+        },
+        {
+          "day": "Weekend",
+          "time": "Closed"
+        }
+      ]
+    },
+    "contact": {
+      "settings": {
+        "eyebrow": "Free consultation",
+        "heading": "Let's talk about your numbers",
+        "text": "Book a 30-minute call with a chartered accountant. We'll review your situation and give you an honest quote.",
+        "button": "Request consultation"
+      }
+    },
+    "footer": {
+      "settings": {
+        "tagline": "Independent accounting and tax advisory for local businesses and families since 1999.",
+        "address": "Havenkade 22, Leiden",
+        "phone": "+31 71 512 3400",
+        "instagram": "",
+        "facebook": "https://linkedin.com"
+      }
+    }
+  }
+}

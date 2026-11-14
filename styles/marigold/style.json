@@ -1,0 +1,194 @@
+{
+  "name": "Marigold",
+  "style": "Friendly",
+  "tagline": "Warm, playful and welcoming",
+  "motif": "friendly",
+  "fonts": {
+    "head": "'Fredoka', system-ui, sans-serif",
+    "body": "'Nunito', system-ui, sans-serif",
+    "google": "family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700"
+  },
+  "colors": {
+    "bg": "#FFF9F0",
+    "surface": "#FFEBD6",
+    "text": "#2B2A35",
+    "muted": "#6B6878",
+    "accent": "#FF7A59",
+    "accent_text": "#FFFFFF",
+    "border": "#F3DCC4",
+    "alt": "#3BB2A0",
+    "yellow": "#FFC93C"
+  },
+  "site": {
+    "name": "Happy Paws",
+    "nav": [
+      "Grooming",
+      "Daycare",
+      "Team",
+      "Book"
+    ]
+  },
+  "sections": {
+    "header": {
+      "settings": {
+        "announcement": "🐾 New clients get 15% off their first groom!",
+        "cta_label": "Book a groom",
+        "cta_link": "#contact"
+      }
+    },
+    "hero": {
+      "settings": {
+        "layout": "split",
+        "eyebrow": "Dog grooming & daycare",
+        "heading": "Fresh cuts & wagging tails.",
+        "subheading": "Gentle, fear-free grooming and a sunny daycare where your pup can play, nap and make friends while you're at work.",
+        "cta_label": "Book an appointment",
+        "cta_link": "#contact",
+        "cta2_label": "See prices",
+        "cta2_link": "#services",
+        "image": "hero.svg",
+        "note": "⭐ Rated 4.9 by 800+ happy pet parents"
+      },
+      "blocks": []
+    },
+    "services": {
+      "settings": {
+        "layout": "cards",
+        "eyebrow": "What we do",
+        "heading": "Pamper packages for every pup",
+        "intro": "All grooms include a nail trim, ear clean and a very good-dog treat."
+      },
+      "blocks": [
+        {
+          "title": "🛁 Bath & brush",
+          "text": "Warm bath, blow-dry, brush-out and a spritz of cologne.",
+          "price": "From €35"
+        },
+        {
+          "title": "✂️ Full groom",
+          "text": "Everything in the bath plus a breed-style haircut.",
+          "price": "From €55"
+        },
+        {
+          "title": "🎾 Doggy daycare",
+          "text": "Supervised play groups, naps and garden time.",
+          "price": "€29 / day"
+        },
+        {
+          "title": "🐶 Puppy intro",
+          "text": "A gentle first visit to make grooming fun from day one.",
+          "price": "€25"
+        }
+      ]
+    },
+    "about": {
+      "settings": {
+        "eyebrow": "Meet the team",
+        "heading": "We're dog people, through and through.",
+        "text": "Happy Paws is run by Noor and her team of certified fear-free groomers. We take our time, use calm handling and natural shampoos — and yes, there are lots of cuddles.",
+        "signature": "Noor & the pack",
+        "image": "about.svg"
+      },
+      "blocks": [
+        {
+          "title": "Fear-free certified",
+          "text": "Calm, gentle handling"
+        },
+        {
+          "title": "Natural products",
+          "text": "Vegan & hypoallergenic"
+        }
+      ]
+    },
+    "gallery": {
+      "settings": {
+        "eyebrow": "Pup gallery",
+        "heading": "Fresh from the salon"
+      },
+      "blocks": [
+        {
+          "image": "gallery-1.svg",
+          "caption": "Biscuit's first groom!"
+        },
+        {
+          "image": "gallery-2.svg",
+          "caption": ""
+        },
+        {
+          "image": "gallery-3.svg",
+          "caption": ""
+        },
+        {
+          "image": "gallery-4.svg",
+          "caption": ""
+        }
+      ]
+    },
+    "testimonials": {
+      "settings": {
+        "eyebrow": "Happy humans",
+        "heading": "Tails are wagging",
+        "rating": "4.9 from 812 reviews"
+      },
+      "blocks": [
+        {
+          "quote": "My nervous rescue actually pulls me towards the door now. That says everything!",
+          "author": "Fleur",
+          "detail": "Mum to Pip 🐕"
+        },
+        {
+          "quote": "Daycare has been a game changer. He comes home tired and so happy.",
+          "author": "Ahmed",
+          "detail": "Dad to Bruno 🐶"
+        },
+        {
+          "quote": "The cutest haircut and the sweetest team. We won't go anywhere else.",
+          "author": "Julia",
+          "detail": "Mum to Mochi 🐩"
+        }
+      ]
+    },
+    "visit": {
+      "settings": {
+        "eyebrow": "Come visit",
+        "heading": "Pop in and say woof!",
+        "address": "Zonnelaan 9\n5611 AB Eindhoven",
+        "phone": "+31 40 123 9999",
+        "email": "woof@happypaws.nl",
+        "directions_link": "https://maps.google.com",
+        "image": "map.svg"
+      },
+      "blocks": [
+        {
+          "day": "Mon – Fri",
+          "time": "07:30 – 18:30"
+        },
+        {
+          "day": "Saturday",
+          "time": "09:00 – 15:00"
+        },
+        {
+          "day": "Sunday",
+          "time": "Nap day 💤"
+        }
+      ]
+    },
+    "contact": {
+      "settings": {
+        "eyebrow": "Book now",
+        "heading": "Let's get your pup booked in!",
+        "text": "Tell us your dog's name, breed and what they need — we'll reply with a time that suits you.",
+        "button": "Request booking 🐾"
+      }
+    },
+    "footer": {
+      "settings": {
+        "tagline": "Fear-free grooming & sunny daycare in Eindhoven.",
+        "address": "Zonnelaan 9, Eindhoven",
+        "phone": "+31 40 123 9999",
+        "instagram": "https://instagram.com",
+        "facebook": "https://facebook.com"
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ export function buildPreview(style, art) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(style.site.name)} — ${esc(style.name)} template</title>
+<title>${esc(style.site.name)} — ${esc(style.name)} template (${esc(style.style)})</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${fontsUrl(style)}">
 <link rel="stylesheet" href="assets/base.css">

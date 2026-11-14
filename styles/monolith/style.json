@@ -1,0 +1,208 @@
+{
+  "name": "Monolith",
+  "style": "Brutalist",
+  "tagline": "Loud, raw and unapologetic",
+  "motif": "brutalist",
+  "fonts": {
+    "head": "'Archivo Black', Impact, sans-serif",
+    "body": "'Space Mono', ui-monospace, monospace",
+    "google": "family=Archivo+Black&family=Space+Mono:wght@400;700"
+  },
+  "colors": {
+    "bg": "#F4F1E8",
+    "surface": "#FFE600",
+    "text": "#0A0A0A",
+    "muted": "#3A3A3A",
+    "accent": "#FF3B1F",
+    "accent_text": "#FFFFFF",
+    "border": "#0A0A0A",
+    "alt": "#2E5BFF"
+  },
+  "site": {
+    "name": "GRND.",
+    "nav": [
+      "Menu",
+      "Beans",
+      "Events",
+      "Find us"
+    ]
+  },
+  "sections": {
+    "header": {
+      "settings": {
+        "announcement": "NEW ROAST: ETHIOPIA GUJI — OUT NOW ★ FREE REFILLS BEFORE 9AM ★",
+        "cta_label": "Order ahead",
+        "cta_link": "#contact"
+      }
+    },
+    "hero": {
+      "settings": {
+        "layout": "split",
+        "eyebrow": "Coffee bar / roastery",
+        "heading": "STRONG COFFEE. NO NONSENSE.",
+        "subheading": "Roasted on site every Tuesday. Pulled by people who care too much. Open early, closed when we're tired.",
+        "cta_label": "See the menu",
+        "cta_link": "#services",
+        "cta2_label": "Find us",
+        "cta2_link": "#visit",
+        "image": "hero.svg",
+        "note": ""
+      },
+      "blocks": [
+        {
+          "value": "07:00",
+          "label": "Doors open"
+        },
+        {
+          "value": "€2.80",
+          "label": "Flat white"
+        }
+      ]
+    },
+    "services": {
+      "settings": {
+        "layout": "grid",
+        "eyebrow": "Menu",
+        "heading": "WHAT WE POUR",
+        "intro": "Oat milk is free. Decaf is good. Sugar is on the counter."
+      },
+      "blocks": [
+        {
+          "title": "ESPRESSO",
+          "text": "House blend, chocolate & cherry. Double shot always.",
+          "price": "€2.20"
+        },
+        {
+          "title": "FLAT WHITE",
+          "text": "Silky, strong, correct temperature.",
+          "price": "€2.80"
+        },
+        {
+          "title": "FILTER",
+          "text": "Rotating single origin. Ask what's on the bar.",
+          "price": "€3.20"
+        },
+        {
+          "title": "BEANS 250G",
+          "text": "Roasted this week. Ground to order.",
+          "price": "€11"
+        },
+        {
+          "title": "BANANA BREAD",
+          "text": "Grandma's recipe. Salted butter on request.",
+          "price": "€3.50"
+        },
+        {
+          "title": "CUPPING CLASS",
+          "text": "Saturday 10:00. Taste six coffees, learn why.",
+          "price": "€25"
+        }
+      ]
+    },
+    "about": {
+      "settings": {
+        "eyebrow": "About",
+        "heading": "ONE ROASTER. TWO OWNERS. ZERO FRANCHISES.",
+        "text": "GRND. opened in an old bike garage in 2019. We still roast on the same 5 kg machine in the back, buy green beans directly from three farms and pay them properly.",
+        "signature": "",
+        "image": "about.svg"
+      },
+      "blocks": [
+        {
+          "title": "DIRECT TRADE",
+          "text": "3 partner farms"
+        },
+        {
+          "title": "ROASTED HERE",
+          "text": "Every Tuesday"
+        }
+      ]
+    },
+    "gallery": {
+      "settings": {
+        "eyebrow": "Feed",
+        "heading": "@GRND.COFFEE"
+      },
+      "blocks": [
+        {
+          "image": "gallery-1.svg",
+          "caption": "ROAST DAY"
+        },
+        {
+          "image": "gallery-2.svg",
+          "caption": ""
+        },
+        {
+          "image": "gallery-3.svg",
+          "caption": ""
+        },
+        {
+          "image": "gallery-4.svg",
+          "caption": ""
+        }
+      ]
+    },
+    "testimonials": {
+      "settings": {
+        "eyebrow": "Reviews",
+        "heading": "PEOPLE SAID THINGS",
+        "rating": "4.8 ON GOOGLE (900+)"
+      },
+      "blocks": [
+        {
+          "quote": "Best flat white in the city. Don't tell anyone.",
+          "author": "MO",
+          "detail": "Regular since day one"
+        },
+        {
+          "quote": "Staff remembered my order after two visits. Slightly scary. Very good.",
+          "author": "ANNA",
+          "detail": "Google review"
+        },
+        {
+          "quote": "The banana bread alone is worth the queue.",
+          "author": "RICK",
+          "detail": "Local legend"
+        }
+      ]
+    },
+    "visit": {
+      "settings": {
+        "eyebrow": "Find us",
+        "heading": "CORNER OF DOCK & 3RD",
+        "address": "Dockstraat 3\n9000 Gent",
+        "phone": "+32 9 123 45 67",
+        "email": "hi@grnd.coffee",
+        "directions_link": "https://maps.google.com",
+        "image": "map.svg"
+      },
+      "blocks": [
+        {
+          "day": "MON – FRI",
+          "time": "07:00 – 17:00"
+        },
+        {
+          "day": "SAT – SUN",
+          "time": "08:00 – 16:00"
+        }
+      ]
+    },
+    "contact": {
+      "settings": {
+        "eyebrow": "Order ahead",
+        "heading": "SKIP THE QUEUE",
+        "text": "Wholesale, events or a big office order? Drop a line.",
+        "button": "SEND IT →"
+      }
+    },
+    "footer": {
+      "settings": {
+        "tagline": "Coffee bar & roastery. Strong coffee. No nonsense.",
+        "address": "Dockstraat 3, Gent",
+        "phone": "+32 9 123 45 67",
+        "instagram": "https://instagram.com",
+        "facebook": "https://facebook.com"
+      }
+    }
+  }
+}

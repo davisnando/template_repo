@@ -83,7 +83,8 @@ ${Object.keys(colorLabels).map((k) => `  --c-${k.replace(/_/g, '-')}: @${k};`).j
 
   const files = {
     'template.conf': json({
-      name: `Local ${style.name}`,
+      name: style.name,
+      description: `${style.style} template — ${style.tagline}.`,
       author: 'Local Business Templates',
       layouts: { default: { name: 'Default', regions: ['site'] } },
       navigations: [{ title: 'Main Navigation', name: 'mainNav' }],

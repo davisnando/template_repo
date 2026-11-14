@@ -66,4 +66,4 @@ for (const slug of listStyles()) {
 }
 
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
-console.log(`✓ ${listStyles().length} styles valid for Shopify and Squarespace`);
+console.log(`✓ ${listStyles().length} templates valid for Shopify and Squarespace`);

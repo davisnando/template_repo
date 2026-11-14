@@ -97,7 +97,7 @@ ${Object.keys(colorLabels).map((k) => `      --c-${k.replace(/_/g, '-')}: {{ set
 `;
 
 const settingsSchema = (style) => [
-  { name: 'theme_info', theme_name: `Local ${style.name}`, theme_version: '1.0.0', theme_author: 'Local Business Templates', theme_documentation_url: 'https://github.com', theme_support_url: 'https://github.com' },
+  { name: 'theme_info', theme_name: style.name, theme_version: '1.0.0', theme_author: 'Local Business Templates', theme_documentation_url: 'https://github.com', theme_support_url: 'https://github.com' },
   {
     name: 'Colors',
     settings: Object.entries(colorLabels).map(([k, label]) => ({ type: 'color', id: `color_${k}`, label, default: style.colors[k] })),

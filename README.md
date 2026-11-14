@@ -1,18 +1,18 @@
 # Local Business Templates
 
-Seven modern website templates for local businesses. Each one ships as a **Shopify Online Store 2.0 theme** and as a **Squarespace Developer Platform template**, both generated from one shared source.
+Seven modern website templates for local businesses. Every template is a separate, named theme and ships as a **Shopify Online Store 2.0 theme** and as a **Squarespace Developer Platform template**, both generated from one shared source.
 
-| Style | Desktop | Mobile |
+| Template | Desktop | Mobile |
 |---|---|---|
-| **Minimalist**<br>Kiln & Clay — ceramics studio<br><sub>Warm paper tones, editorial serif, hairline rules</sub> | ![Minimalist desktop](screenshots/minimalist/desktop.png) | ![Minimalist mobile](screenshots/minimalist/mobile.png) |
-| **Futuristic**<br>Voltline — EV & e-bike service lab<br><sub>Dark UI, neon gradients, glass cards, mono labels</sub> | ![Futuristic desktop](screenshots/futuristic/desktop.png) | ![Futuristic mobile](screenshots/futuristic/mobile.png) |
-| **Luxury**<br>Maison Aurelle — day spa<br><sub>Black & gold, italic Cormorant, full-bleed hero</sub> | ![Luxury desktop](screenshots/luxury/desktop.png) | ![Luxury mobile](screenshots/luxury/mobile.png) |
-| **Brutalist**<br>GRND. — coffee bar & roastery<br><sub>Hard shadows, 3px borders, primary colours, mono type</sub> | ![Brutalist desktop](screenshots/brutalist/desktop.png) | ![Brutalist mobile](screenshots/brutalist/mobile.png) |
-| **Professional**<br>Harbor & Pine — accounting firm<br><sub>Navy & blue, data visuals, trust signals</sub> | ![Professional desktop](screenshots/professional/desktop.png) | ![Professional mobile](screenshots/professional/mobile.png) |
-| **Elegant**<br>Petal & Stem — florist<br><sub>Blush palette, Playfair, arched frames</sub> | ![Elegant desktop](screenshots/elegant/desktop.png) | ![Elegant mobile](screenshots/elegant/mobile.png) |
-| **Friendly**<br>Happy Paws — dog grooming<br><sub>Rounded shapes, playful colours, illustrated mascot</sub> | ![Friendly desktop](screenshots/friendly/desktop.png) | ![Friendly mobile](screenshots/friendly/mobile.png) |
+| **Atelier**<br>Minimalist · <sub>Quiet, editorial and crafted</sub><br><sub>Demo: Kiln & Clay</sub> | ![Atelier desktop](screenshots/atelier/desktop.png) | ![Atelier mobile](screenshots/atelier/mobile.png) |
+| **Nebula**<br>Futuristic · <sub>Dark, glowing and high-tech</sub><br><sub>Demo: Voltline</sub> | ![Nebula desktop](screenshots/nebula/desktop.png) | ![Nebula mobile](screenshots/nebula/mobile.png) |
+| **Aurum**<br>Luxury · <sub>Black, gold and unhurried</sub><br><sub>Demo: Maison Aurelle</sub> | ![Aurum desktop](screenshots/aurum/desktop.png) | ![Aurum mobile](screenshots/aurum/mobile.png) |
+| **Monolith**<br>Brutalist · <sub>Loud, raw and unapologetic</sub><br><sub>Demo: GRND.</sub> | ![Monolith desktop](screenshots/monolith/desktop.png) | ![Monolith mobile](screenshots/monolith/mobile.png) |
+| **Meridian**<br>Professional · <sub>Clear, credible and data-led</sub><br><sub>Demo: Harbor & Pine</sub> | ![Meridian desktop](screenshots/meridian/desktop.png) | ![Meridian mobile](screenshots/meridian/mobile.png) |
+| **Camellia**<br>Elegant · <sub>Soft, romantic and refined</sub><br><sub>Demo: Petal & Stem</sub> | ![Camellia desktop](screenshots/camellia/desktop.png) | ![Camellia mobile](screenshots/camellia/mobile.png) |
+| **Marigold**<br>Friendly · <sub>Warm, playful and welcoming</sub><br><sub>Demo: Happy Paws</sub> | ![Marigold desktop](screenshots/marigold/desktop.png) | ![Marigold mobile](screenshots/marigold/mobile.png) |
 
-Full-page captures live in `screenshots/<style>/full.png`.
+Full-page captures live in `screenshots/<template>/full.png`.
 
 ## How it works
 
@@ -26,8 +26,8 @@ packages/
   shopify/       theme generator (layout, sections with schema, JSON templates, commerce pages)
   squarespace/   template generator (template.conf, site.region, navigation block, LESS tweaks, homepage)
   preview/       static HTML preview (used for the screenshots)
-styles/<style>/
-  style.json     tokens (colours, fonts), section layout variants, demo content
+styles/<template>/
+  style.json     name, style, tokens (colours, fonts), section layout variants, demo content
   style.css      personality on top of the base
 scripts/         build, validate, screenshots, package
 ```
@@ -43,26 +43,26 @@ Adding or changing a section in `sections.js` therefore updates all 7 styles on 
 Requires Node 20+. Screenshots also need Playwright (`npm i -D playwright`).
 
 ```bash
-npm run build          # dist/{shopify,squarespace,preview}/<style>/
+npm run build          # dist/{shopify,squarespace,preview}/<template>/
 ```
 ```bash
 node scripts/validate.mjs   # structural checks on every generated theme
 ```
 ```bash
-npm run screenshots    # screenshots/<style>/{desktop,full,mobile}.png
+npm run screenshots    # screenshots/<template>/{desktop,full,mobile}.png
 ```
 ```bash
-npm run package        # dist/packages/shopify-<style>.zip
+npm run package        # dist/packages/shopify-<template>.zip
 ```
 
-To build one style only, pass its name, e.g. `node scripts/build.mjs luxury`.
+To build one style only, pass its name, e.g. `node scripts/build.mjs aurum`.
 
 ## Installing
 
 ### Shopify
 1. Run `npm run build` and then `npm run package`.
-2. In Shopify admin go to **Online Store → Themes → Add theme → Upload zip file**, and pick `dist/packages/shopify-<style>.zip`.
-   You can also run `shopify theme push --path dist/shopify/<style>`.
+2. In Shopify admin go to **Online Store → Themes → Add theme → Upload zip file**, and pick `dist/packages/shopify-<template>.zip`.
+   You can also run `shopify theme push --path dist/shopify/<template>`.
 3. In the theme editor:
    - Every section, text, button, layout variant (for example hero *split / stacked / centered / full*) and opening-hours row can be edited.
    - Colours are under **Theme settings → Colors**.
@@ -71,17 +71,17 @@ To build one style only, pass its name, e.g. `node scripts/build.mjs luxury`.
 
 ### Squarespace (Developer Platform, 7.0)
 1. Enable **Developer Mode** on the site and clone its template repo.
-2. Copy `dist/squarespace/<style>/*` into that repo, then commit and push.
+2. Copy `dist/squarespace/<template>/*` into that repo, then commit and push.
 3. **Design → Style Editor** exposes every colour as a tweak.
 4. The homepage is `pages/home.page`; set it as the homepage under **Pages**. All other pages use normal Squarespace content and inherit the styling.
 5. Static pages have no form backend, so the contact section links to email and phone. Add a Squarespace Form block on a regular page if you need a form.
 
 ## Adding a style
-1. Copy `styles/minimalist` to `styles/<new-style>`.
+1. Copy `styles/atelier` to `styles/<new-template>`.
 2. Edit the tokens and content in `style.json` and the personality CSS in `style.css`. Pick an art `motif`, or add one to `packages/core/art.js`.
 3. Run `npm run build && npm run screenshots`.
 
 ## Notes / limitations
 - The placeholder imagery is procedural SVG, so there are no stock-photo licences to manage. Swap in real photos per site.
 - Fonts load from Google Fonts on both platforms.
-- The generated output has been checked with `scripts/validate.mjs`. It has not yet been uploaded to a live Shopify store or Squarespace site. Before shipping, do one real upload per platform and run `npx @shopify/theme-check-node dist/shopify/<style>`.
+- The generated output has been checked with `scripts/validate.mjs`. It has not yet been uploaded to a live Shopify store or Squarespace site. Before shipping, do one real upload per platform and run `npx @shopify/theme-check-node dist/shopify/<template>`.
