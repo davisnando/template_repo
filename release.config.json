@@ -1,0 +1,9 @@
+{
+  "brand": "Local Business Templates",
+  "website": "https://example.com",
+  "supportEmail": "support@example.com",
+  "version": "1.0.0",
+  "releaseDate": "2026-11-14",
+  "prices": { "single": 79, "extended": 199, "bundle": 399 },
+  "_comment": "Replace brand, website and supportEmail with your own before selling. `npm run release` refuses to build while example.com placeholders remain unless you pass --draft."
+}

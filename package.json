@@ -10,7 +10,9 @@
     "check:a11y": "node scripts/a11y.mjs",
     "screenshots": "node scripts/screenshots.mjs",
     "package": "node scripts/package.mjs",
-    "fonts": "node scripts/fetch-fonts.mjs"
+    "fonts": "node scripts/fetch-fonts.mjs",
+    "release": "node scripts/release.mjs",
+    "release:draft": "node scripts/release.mjs --draft"
   },
   "engines": {
     "node": ">=20"

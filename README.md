@@ -72,6 +72,19 @@ npm run package        # dist/packages/shopify-<template>.zip and shopify-local.
 To build one template only, pass its name, e.g. `node scripts/build.mjs aurum`.
 
 ## Selling
+
+```bash
+npm run build && npm run screenshots && npm run release   # dist/release/
+```
+
+For every template, `dist/release/` holds `<Name>-v1.0.0.zip`, the file the buyer downloads. It contains:
+- the Shopify theme
+- the Squarespace 7.1 design kit: custom CSS, fonts, JPG artwork and a step-by-step build guide
+- the Squarespace 7.0 Developer template
+- `Documentation.html`, `LICENSE.txt`, `CHANGELOG.md` and screenshots
+
+Alongside them are a `<Name>-LISTING.md` with marketplace copy, an all-templates bundle and the Theme Store submission zip. Put your brand, website, support email and prices in `release.config.json` first. Until you do, only `npm run release:draft` works.
+
 - **Shopify Theme Store:** submit the single theme *Local*, which carries all 12 designs as presets. [docs/THEME_STORE.md](docs/THEME_STORE.md) lists what's already verified and the remaining manual steps.
 - **Squarespace:** read [docs/SQUARESPACE.md](docs/SQUARESPACE.md) first. Code templates only run on 7.0 sites.
 
