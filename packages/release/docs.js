@@ -2,6 +2,7 @@
 // changelog and marketplace listing copy.
 import { esc } from '../core/context.js';
 import { sqsPalette, fontPlan } from '../squarespace71/build.js';
+import { wixPalette, WIX_CLASSES } from '../wix/build.js';
 
 const INDUSTRY = {
   atelier: 'studios, makers & workshops', aurum: 'spas, salons & premium services', camellia: 'florists, bakeries & boutiques',
@@ -63,13 +64,13 @@ export function documentationHtml(style, cfg) {
 <body>
 <main>
   <h1>${esc(style.name)}</h1>
-  <p class="lead">${esc(style.style)} website template for ${esc(INDUSTRY[style.slug] || 'local businesses')} · Shopify &amp; Squarespace · v${esc(cfg.version)}</p>
+  <p class="lead">${esc(style.style)} website template for ${esc(INDUSTRY[style.slug] || 'local businesses')} · Shopify, Squarespace &amp; Wix · v${esc(cfg.version)}</p>
   <img class="shot" src="screenshots/desktop.png" alt="${esc(style.name)} homepage" width="2880" height="1800">
 
   <nav aria-label="Contents"><ol>
     <li><a href="#contents">Package contents</a></li><li><a href="#shopify">Install on Shopify</a></li>
     <li><a href="#sqs71">Squarespace 7.1 setup</a></li><li><a href="#sqs70">Squarespace 7.0 (Developer Mode)</a></li>
-    <li><a href="#customise">Customising</a></li><li><a href="#support">Support &amp; licence</a></li>
+    <li><a href="#wix">Wix Studio setup</a></li><li><a href="#customise">Customising</a></li><li><a href="#support">Support &amp; licence</a></li>
   </ol></nav>
 
   <h2 id="contents">Package contents</h2>
@@ -77,6 +78,7 @@ export function documentationHtml(style, cfg) {
     <tr><th scope="row"><code>${esc(style.name)}-Shopify-Theme.zip</code></th><td>Shopify Online Store 2.0 theme. Upload as-is.</td></tr>
     <tr><th scope="row"><code>${esc(style.name)}-Squarespace-7.1-Kit.zip</code></th><td>Custom CSS, fonts and images for Squarespace 7.1, plus this guide's setup steps.</td></tr>
     <tr><th scope="row"><code>${esc(style.name)}-Squarespace-7.0-Template.zip</code></th><td>Developer Platform template for Squarespace 7.0 sites with Developer Mode.</td></tr>
+    <tr><th scope="row"><code>${esc(style.name)}-Wix-Studio-Kit.zip</code></th><td>global.css, fonts and images for Wix Studio, plus this guide's setup steps.</td></tr>
     <tr><th scope="row"><code>screenshots/</code></th><td>Desktop, full-page and mobile previews.</td></tr>
     <tr><th scope="row"><code>LICENSE.txt</code>, <code>CHANGELOG.md</code></th><td>Licence terms and version history.</td></tr>
   </table>
@@ -122,9 +124,28 @@ export function documentationHtml(style, cfg) {
     <li>Set the generated <strong>home</strong> page as the homepage and add your pages to <strong>Main Navigation</strong>. Colours are tweaks in the Style Editor.</li>
   </ol>
 
+  <h2 id="wix">Wix Studio setup</h2>
+  <p>Wix doesn't allow importing theme code, so the design is applied with Site Styles and Wix Studio's CSS editing. Allow about 45–60 minutes. These steps use the Wix Studio editor; the classic Wix Editor supports the colours, fonts and layout but not custom CSS classes.</p>
+  <h3>1. Colours</h3>
+  <p>Open <strong>Site Styles → Colors</strong> and set the theme colours:</p>
+  <table>${wixPalette(style).map(([n, hex]) => `<tr><th scope="row">${n}</th><td>${swatch(hex)}</td></tr>`).join('')}</table>
+  <h3>2. Fonts and text themes</h3>
+  <p>Under <strong>Site Styles → Text → Upload fonts</strong>, upload the files in the kit's <code>fonts/</code> folder. Then set the text themes:</p>
+  <table>
+    <tr><th scope="row">Headings 1–3</th><td>${esc(family(style.fonts.head))}, weight ${esc(fontWeight(style))}${fontCase(style)}</td></tr>
+    <tr><th scope="row">Paragraphs</th><td>${esc(family(style.fonts.body))}</td></tr>
+  </table>
+  <h3>3. Custom CSS</h3>
+  <p>In Wix Studio, open <strong>Code → CSS → global.css</strong> and paste the kit's <code>global.css</code>. Then select elements, open the <strong>CSS Classes</strong> panel and add these custom classes:</p>
+  <table>${WIX_CLASSES.map(([cls, use]) => `<tr><td><code>${cls}</code></td><td>${esc(use)}</td></tr>`).join('')}</table>
+  <h3>4. Build the homepage</h3>
+  <p>Use the same section order and demo content as in the Squarespace table above. Wix equivalents: Squarespace “List section” = a Repeater (or Multi-state box) of <code>lbt-card</code> containers; “Gallery section” = a Pro Gallery in grid layout; “Form block” = Wix Forms; “Map block” = Google Maps element. The images are in the kit's <code>images/</code> folder.</p>
+  <h3>Selling on Wix</h3>
+  <p>Once the site is built, you can sell it as a template. Wix Studio partners can list templates on the Wix Marketplace, or sell them anywhere through Wix's custom-template transfer.</p>
+
   <h2 id="customise">Customising</h2>
   <ul>
-    <li><strong>Colours:</strong> Shopify colour schemes and the Squarespace palette/tweaks.</li>
+    <li><strong>Colours:</strong> Shopify colour schemes, the Squarespace palette/tweaks and Wix Site Styles.</li>
     <li><strong>Fonts:</strong> they're bundled and self-hosted, so no Google Fonts requests.</li>
     <li><strong>Images:</strong> replace the placeholder artwork with your own photos. Recommended sizes are 1600 × 1100 (hero), 1000 × 1250 (about) and 1000 × 1000 (gallery).</li>
     <li><strong>Accessibility:</strong> the default palette meets WCAG 2.1 AA contrast. Check contrast again after changing colours.</li>
@@ -139,6 +160,10 @@ export function documentationHtml(style, cfg) {
 </html>
 `;
 }
+
+const family = (stack) => stack.match(/'([^']+)'/)?.[1] || stack;
+const fontWeight = (style) => (style.css.match(/--fw-head:\s*(\d+)/)?.[1] || '600');
+const fontCase = (style) => (/--head-case:\s*uppercase/.test(style.css) ? ', ALL CAPS' : '');
 
 export function licenseText(style, cfg) {
   return `${style.name} — ${cfg.brand}
@@ -165,7 +190,7 @@ marketplaces.
 
 5. THIRD-PARTY COMPONENTS
 Bundled fonts are licensed under the SIL Open Font License 1.1 and may be used under
-the terms of that licence. Shopify and Squarespace are trademarks of their owners;
+the terms of that licence. Shopify, Squarespace and Wix are trademarks of their owners;
 this Template is not affiliated with or endorsed by them.
 
 6. WARRANTY
@@ -185,6 +210,7 @@ export function changelog(style, cfg) {
 - First release.
 - Shopify Online Store 2.0 theme: passes Shopify Theme Check with no errors or warnings.
 - Squarespace 7.1 design kit and Squarespace 7.0 Developer Platform template.
+- Wix Studio design kit.
 - WCAG 2.1 AA colour contrast (axe-core audit, desktop and mobile).
 `;
 }
@@ -193,7 +219,7 @@ export function listing(style, cfg) {
   const industry = INDUSTRY[style.slug] || 'local businesses';
   return `# ${style.name} — ${style.style} Website Template for ${industry.replace(/(^|, | & )(\w)/g, (m) => m.toUpperCase())}
 
-**Short description:** ${style.tagline}. A ${style.style.toLowerCase()} website template for ${industry}, for Shopify and Squarespace.
+**Short description:** ${style.tagline}. A ${style.style.toLowerCase()} website template for ${industry}, for Shopify, Squarespace and Wix.
 
 **Price:** Single licence €${cfg.prices.single} · Extended licence €${cfg.prices.extended} · All-templates bundle €${cfg.prices.bundle}
 
@@ -204,15 +230,16 @@ ${style.name} gives ${industry} a ${style.tagline.toLowerCase()} website that's 
 - Shopify Online Store 2.0 theme: section-based editing, colour schemes, app blocks
 - Full store support: variants, subscriptions, filtering, predictive search, customer accounts, multi-currency and multi-language
 - Squarespace 7.1 design kit (custom CSS, fonts, images and a step-by-step build guide) plus a Squarespace 7.0 Developer template
+- Wix Studio design kit (global.css, fonts, images and a step-by-step build guide)
 - Mobile-first and fast: self-hosted fonts, responsive images, no heavy frameworks
 - Accessible: WCAG 2.1 AA colour contrast, keyboard navigation and labelled forms
 - 11 sibling design styles in the same theme, switchable from one setting (Shopify)
 - Detailed documentation and 6 months of email support
 
 ## What's included
-Shopify theme (.zip) · Squarespace 7.1 kit (.zip) · Squarespace 7.0 template (.zip) · Documentation (HTML) · Screenshots · Licence
+Shopify theme (.zip) · Squarespace 7.1 kit (.zip) · Squarespace 7.0 template (.zip) · Wix Studio kit (.zip) · Documentation (HTML) · Screenshots · Licence
 
 ## Tags
-${[style.style, style.name, 'shopify theme', 'squarespace template', 'small business website', 'local business', ...industry.split(/, | & /)].map((t) => t.toLowerCase()).join(', ')}
+${[style.style, style.name, 'shopify theme', 'squarespace template', 'wix template', 'small business website', 'local business', ...industry.split(/, | & /)].map((t) => t.toLowerCase()).join(', ')}
 `;
 }

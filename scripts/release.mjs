@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import { ROOT, listStyles, loadStyle, FONTS_DIR } from '../packages/core/style.js';
 import { artworkFor, ART_SIZES } from '../packages/core/art.js';
 import { buildSquarespace71 } from '../packages/squarespace71/build.js';
+import { buildWix } from '../packages/wix/build.js';
 import { documentationHtml, licenseText, changelog, listing } from '../packages/release/docs.js';
 
 const cfg = JSON.parse(readFileSync(join(ROOT, 'release.config.json'), 'utf8'));
@@ -60,6 +61,14 @@ for (const slug of listStyles()) {
   }
   writeFileSync(join(kit, 'README.txt'), `${style.name} — Squarespace 7.1 kit\nFollow "Squarespace 7.1 setup" in Documentation.html.\n`);
   zip(kit, join(dir, `${style.name}-Squarespace-7.1-Kit.zip`));
+
+  // Wix Studio kit: same fonts and artwork, Wix-specific CSS
+  const wix = join(tmp, 'wix');
+  cpSync(join(kit, 'fonts'), join(wix, 'fonts'), { recursive: true });
+  cpSync(join(kit, 'images'), join(wix, 'images'), { recursive: true });
+  writeFileSync(join(wix, 'global.css'), buildWix(style).css);
+  writeFileSync(join(wix, 'README.txt'), `${style.name} — Wix Studio kit\nFollow "Wix Studio setup" in Documentation.html.\n`);
+  zip(wix, join(dir, `${style.name}-Wix-Studio-Kit.zip`));
 
   // Docs, licence, listing, screenshots
   writeFileSync(join(dir, 'Documentation.html'), documentationHtml(style, cfg));
